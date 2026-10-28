@@ -1,0 +1,32 @@
+experiment: r7_li2023
+paper_reference: Table 10 (PCG with the GNN preconditioner of Li et al. 2023 on Poisson; their code in third_party/li2023_preconditioner, unmodified). Training size and epochs are not given in either paper.
+results_dir: results/r7_li2023
+checkpoint_dir: results/checkpoints
+cache_dir: results/datasets
+export_dir: results/r7_li2023/data
+kind: poisson
+normalization: upstream
+grids: [32, 64, 128]
+n_train: 500
+train_seed: 2
+model_seed: 0
+test:
+  n_test: 20
+  seed: 12
+  initial_guess_seed: 1
+  n_iter: 6grid
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-12]
+model:
+  hidden_dim: 16
+  num_iterations: 5
+  hidden_layers_encoder: 1
+  hidden_layers_processor: 1
+  hidden_layers_decoder: 1
+  norm: LayerNorm
+training:
+  epochs: 200
+  batch_size: 16
+  learning_rate: 1.0e-3
+  decay_steps: 40000
+  decay_gamma: 0.1
+  min_lr: 1.0e-8

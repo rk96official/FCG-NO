@@ -1,0 +1,16 @@
+name: li2023
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu124
+      - --find-links https://data.pyg.org/whl/torch-2.5.0+cu124.html
+      - --only-binary=torch_scatter
+      - torch==2.5.1
+      - torch_geometric==2.6.1
+      - torch_scatter
+      - numpy
+      - scipy
+      - pyyaml

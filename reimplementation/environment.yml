@@ -1,0 +1,18 @@
+name: fcgno
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - jax[cuda12]>=0.4.30
+      - equinox>=0.11.4
+      - optax>=0.2.2
+      - numpy
+      - scipy
+      - pyyaml
+      - pandas
+      - matplotlib
+      - tqdm
+      - pytest
+      - cloudpickle

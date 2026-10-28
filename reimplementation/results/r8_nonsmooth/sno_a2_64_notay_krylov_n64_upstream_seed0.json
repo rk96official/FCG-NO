@@ -1,0 +1,57 @@
+[
+  {
+    "kind": "a2",
+    "grid": 64,
+    "model": "sno",
+    "loss": "notay",
+    "sampling": "krylov",
+    "normalization": "upstream",
+    "seed": 0,
+    "n_train": 64,
+    "krylov_iterations": 100,
+    "name": "sno_a2_64_notay_krylov_n64_upstream_seed0",
+    "test_grid": 64,
+    "n_iter": 256,
+    "cg_n_iter": 384,
+    "fcg": {
+      "0.001": {
+        "iterations_mean_curve": 41,
+        "iterations_sample_mean": 21.9,
+        "iterations_sample_std": 8.21522975941635,
+        "samples_not_converged": 0
+      },
+      "1e-06": {
+        "iterations_mean_curve": 66,
+        "iterations_sample_mean": 43.55,
+        "iterations_sample_std": 12.281999022960392,
+        "samples_not_converged": 0
+      },
+      "1e-12": {
+        "iterations_mean_curve": 114,
+        "iterations_sample_mean": 88.45,
+        "iterations_sample_std": 21.47900137343447,
+        "samples_not_converged": 0
+      }
+    },
+    "cg": {
+      "0.001": {
+        "iterations_mean_curve": -1,
+        "iterations_sample_mean": NaN,
+        "iterations_sample_std": NaN,
+        "samples_not_converged": 7
+      },
+      "1e-06": {
+        "iterations_mean_curve": -1,
+        "iterations_sample_mean": NaN,
+        "iterations_sample_std": NaN,
+        "samples_not_converged": 20
+      },
+      "1e-12": {
+        "iterations_mean_curve": -1,
+        "iterations_sample_mean": NaN,
+        "iterations_sample_std": NaN,
+        "samples_not_converged": 20
+      }
+    }
+  }
+]

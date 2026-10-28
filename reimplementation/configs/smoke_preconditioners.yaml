@@ -1,0 +1,26 @@
+experiment: smoke_preconditioners
+paper_reference: End-to-end smoke test of the preconditioner pipeline with tiny settings; the numbers are meaningless
+results_dir: results_smoke/r2_losses
+checkpoint_dir: results_smoke/checkpoints
+cache_dir: results_smoke/datasets
+kind: [poisson, diffusion]
+grid: 32
+model: sno
+loss: [notay, l2]
+sampling: [krylov, random]
+normalization: upstream
+seed: 0
+n_train: 4
+krylov_iterations: 10
+features: {sno: 8, fno: 8, dilresnet: 8, unet: 4}
+training: {epochs: 2, batch_size: 8}
+test:
+  grids: {32: [32, 64]}
+  n_test: 4
+  seed: 12
+  initial_guess_seed: 1
+  n_iter: 2grid
+  cg_n_iter: 6grid
+  m_max: 20
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-12]
+  timing: true

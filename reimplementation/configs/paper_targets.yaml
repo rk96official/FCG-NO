@@ -1,0 +1,163 @@
+tolerances: ["0.001", "1e-06", "1e-12"]
+tables:
+  table3:
+    title: "Table 3 (and Table 1 NO+FCG column at 1e-6): SNO + FCG iterations, Notay vs L2 loss, Krylov residuals"
+    sources: [r2_losses]
+    filter: {model: sno, sampling: krylov}
+    column: loss
+    metric: iterations
+    paper:
+      notay: &sno_notay_krylov
+        poisson: {32: [4, 9, 20], 64: [5, 14, 31], 128: [6, 20, 48]}
+        diffusion: {32: [4, 9, 31], 64: [5, 14, 36], 128: [5, 19, 47]}
+      l2:
+        poisson: {32: [5, 15, 34], 64: [7, 22, 53], 128: [21, 86, 210]}
+        diffusion: {32: [8, 22, 50], 64: [11, 36, 80], 128: [null, null, null]}
+  table3_notebook_settings:
+    title: "Variant: Table 3 Notay column with the SNO settings of the authors' Update notebooks (median over 3 seeds)"
+    sources: [r2_notebook]
+    filter: {model: sno, sampling: krylov, tag: notebook}
+    column: loss
+    metric: iterations
+    paper:
+      notay: *sno_notay_krylov
+  table3_paper_data_spec:
+    title: "Data-spec test: Table 3 Notay column (Poisson) with the paper text's data description; modes5 = modes 0..5, sampleu = sample u and f = A u, paperdata = both (median of 3 seeds)"
+    sources: [r2_paperdata]
+    filter: {model: sno, sampling: krylov}
+    column: tag
+    metric: iterations
+    paper:
+      modes5: *sno_notay_krylov
+      sampleu: *sno_notay_krylov
+      paperdata: *sno_notay_krylov
+  table3_l2_code_form:
+    title: "Variant: Table 3 L2 column with the L2 form of the upstream code (unnormalized squared error)"
+    sources: [r2_l2mse]
+    filter: {model: sno, sampling: krylov}
+    column: loss
+    metric: iterations
+    paper:
+      mse:
+        poisson: {32: [5, 15, 34], 64: [7, 22, 53], 128: [21, 86, 210]}
+        diffusion: {32: [8, 22, 50], 64: [11, 36, 80], 128: [null, null, null]}
+  table3_physical_scaling:
+    title: "Ablation: Table 3 Notay column with physical matrix scaling"
+    sources: [r2_physical]
+    filter: {model: sno, sampling: krylov}
+    column: loss
+    metric: iterations
+    paper:
+      notay: *sno_notay_krylov
+  table4:
+    title: "Table 4: SNO + FCG iterations, Krylov vs random residuals (Notay loss)"
+    sources: [r2_losses, r3_sampling]
+    filter: {model: sno, loss: notay}
+    column: sampling
+    metric: iterations
+    paper:
+      krylov: *sno_notay_krylov
+      random:
+        poisson: {32: [4, 10, 21], 64: [5, 18, 67], 128: [7, 49, 153]}
+        diffusion: {32: [5, 23, 56], 64: [6, null, null], 128: [10, null, null]}
+  table5:
+    title: "Table 5: SNO trained on a coarse grid, tested on a finer grid"
+    sources: [r4_cross_grid]
+    filter: {model: sno}
+    column: model
+    metric: iterations
+    cross_grid: true
+    paper:
+      sno:
+        poisson: {"32-64": [9, 18, 39], "64-128": [12, 29, 68], "32-128": [24, 61, 141], "64-256": [26, 67, 150], "128-256": [16, 45, 103]}
+        diffusion: {"32-64": [8, 18, 42], "64-128": [9, 24, 59], "32-128": [17, 57, 148], "64-256": [24, 87, 233], "128-256": [16, 46, 112]}
+  table6:
+    title: "Table 6: FCG iterations with FNO, DilResNet and U-Net preconditioners"
+    sources: [r5_architectures]
+    filter: {loss: notay, sampling: krylov}
+    column: model
+    metric: iterations
+    paper:
+      fno:
+        poisson: {32: [2, 7, 15], 64: [4, 10, 26], 128: [6, 17, 40]}
+        diffusion: {32: [2, 8, 19], 64: [3, 9, 29], 128: [5, 14, 36]}
+      dilresnet:
+        poisson: {32: [2, 3, 6], 64: [2, 3, 7], 128: [2, 6, 13]}
+        diffusion: {32: [2, 5, 11], 64: [2, 5, 11], 128: [2, 6, 20]}
+      unet:
+        poisson: {32: [2, 5, 11], 64: [2, 7, 19], 128: [3, 8, 30]}
+        diffusion: {32: [2, 6, 12], 64: [2, 7, 16], 128: [3, 11, 38]}
+  table2:
+    title: "Table 2: wall-clock saving 1 - t_FCG / t_CG in percent, SNO"
+    sources: [r2_losses]
+    filter: {model: sno, loss: notay, sampling: krylov}
+    column: model
+    metric: saving_percent
+    paper:
+      sno: &sno_timing
+        poisson: {32: [43, 34, 9], 64: [58, 31, 14], 128: [74, 40, 33]}
+        diffusion: {32: [22, 21, 5], 64: [32, 32, 11], 128: [66, 44, 42]}
+  table9:
+    title: "Table 9: wall-clock saving 1 - t_FCG / t_CG in percent, all models"
+    sources: [r2_losses, r5_architectures]
+    filter: {loss: notay, sampling: krylov}
+    column: model
+    metric: saving_percent
+    paper:
+      sno: *sno_timing
+      fno: &fno_timing
+        poisson: {32: [53, 16, null], 64: [46, 21, null], 128: [64, 29, 21]}
+        diffusion: {32: [24, 3, null], 64: [35, 30, null], 128: [51, 41, 37]}
+      dilresnet: &dilresnet_timing
+        poisson: {32: [44, 57, 46], 64: [70, 74, 66], 128: [85, 69, 68]}
+        diffusion: {32: [35, 24, 6], 64: [51, 57, 52], 128: [77, 70, 59]}
+      unet: &unet_timing
+        poisson: {32: [47, 32, 7], 64: [73, 45, 16], 128: [80, 62, 34]}
+        diffusion: {32: [23, 26, 17], 64: [61, 51, 44], 128: [72, 56, 38]}
+  table2_identity_fcg_baseline:
+    title: "Table 2, paper-style baseline: saving 1 - t_FCG / t_FCG(B=I) in percent, SNO (jitted on GPU)"
+    sources: [r2_losses]
+    filter: {model: sno, loss: notay, sampling: krylov}
+    column: model
+    metric: saving_vs_identity_fcg_percent
+    paper:
+      sno: *sno_timing
+  table9_identity_fcg_baseline:
+    title: "Table 9, paper-style baseline: saving 1 - t_FCG / t_FCG(B=I) in percent, all models (jitted on GPU)"
+    sources: [r2_losses, r5_architectures]
+    filter: {loss: notay, sampling: krylov}
+    column: model
+    metric: saving_vs_identity_fcg_percent
+    paper:
+      sno: *sno_timing
+      fno: *fno_timing
+      dilresnet: *dilresnet_timing
+      unet: *unet_timing
+  table2_eager:
+    title: "Table 2, eager Python-loop timing (paper-style): saving 1 - t_FCG-NO / t_FCG(B=I) in percent, SNO"
+    sources: [r2_losses]
+    filter: {model: sno, loss: notay, sampling: krylov}
+    column: model
+    metric: saving_eager_percent
+    paper:
+      sno: *sno_timing
+  table9_eager:
+    title: "Table 9, eager Python-loop timing (paper-style): saving 1 - t_FCG-NO / t_FCG(B=I) in percent, all models"
+    sources: [r2_losses, r5_architectures]
+    filter: {loss: notay, sampling: krylov}
+    column: model
+    metric: saving_eager_percent
+    paper:
+      sno: *sno_timing
+      fno: *fno_timing
+      dilresnet: *dilresnet_timing
+      unet: *unet_timing
+  table10_pcg_reference:
+    title: "Table 10: PCG with the GNN preconditioner of Li et al. 2023, same test problems and metric as FCG (FCG column equals Table 3 Notay)"
+    sources: [r7_li2023]
+    filter: {model: pcg_gnn}
+    column: model
+    metric: iterations
+    paper:
+      pcg_gnn:
+        poisson: {32: [8, 19, 39], 64: [11, 23, 47], 128: [20, 39, 75]}

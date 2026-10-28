@@ -1,0 +1,24 @@
+experiment: r3_sampling
+paper_reference: Table 4 random-residual column (Krylov column comes from r2_losses), Figs 10, 11
+results_dir: results/r3_sampling
+checkpoint_dir: results/checkpoints
+cache_dir: results/datasets
+kind: [poisson, diffusion]
+grid: [32, 64, 128]
+model: sno
+loss: notay
+sampling: random
+normalization: upstream
+seed: 0
+n_train: grid
+krylov_iterations: 100
+test:
+  grids: same
+  n_test: 20
+  seed: 12
+  initial_guess_seed: 1
+  n_iter: 2grid
+  cg_n_iter: 6grid
+  m_max: 20
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-12]
+  timing: false

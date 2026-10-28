@@ -1,0 +1,9 @@
+,,iterations_mean_curve,iterations_mean_curve,iterations_mean_curve,iterations_mean_curve,iterations_mean_curve,iterations_mean_curve,iterations_mean_curve,iterations_mean_curve,paper_1e-6,paper_1e-6,paper_1e-6,paper_1e-6,paper_1e-6,paper_1e-6,paper_1e-6,paper_1e-6
+preconditioner,,ILU(1) drop 1e-2,ILU(1) drop 1e-3,ILU(1) drop 1e-5,ILU(1) drop 1e-6,ILU(8) drop 1e-2,ILU(8) drop 1e-3,ILU(8) drop 1e-5,ILU(8) drop 1e-6,ILU(1) drop 1e-2,ILU(1) drop 1e-3,ILU(1) drop 1e-5,ILU(1) drop 1e-6,ILU(8) drop 1e-2,ILU(8) drop 1e-3,ILU(8) drop 1e-5,ILU(8) drop 1e-6
+kind,grid,,,,,,,,,,,,,,,,
+diffusion,32,52.0,53.0,53.0,53.0,7.0,14.0,16.0,16.0,69.0,69.0,69.0,69.0,27.0,27.0,27.0,27.0
+diffusion,64,92.0,93.0,94.0,94.0,10.0,41.0,45.0,45.0,110.0,110.0,110.0,110.0,74.0,74.0,74.0,74.0
+diffusion,128,153.0,154.0,155.0,155.0,33.0,73.0,78.0,82.0,177.0,177.0,177.0,177.0,128.0,128.0,128.0,128.0
+poisson,32,52.0,53.0,53.0,53.0,7.0,14.0,16.0,16.0,69.0,69.0,69.0,69.0,27.0,27.0,27.0,27.0
+poisson,64,92.0,94.0,94.0,94.0,10.0,41.0,45.0,45.0,110.0,110.0,110.0,110.0,77.0,77.0,77.0,77.0
+poisson,128,156.0,155.0,157.0,157.0,33.0,74.0,78.0,82.0,185.0,185.0,185.0,185.0,128.0,128.0,128.0,128.0

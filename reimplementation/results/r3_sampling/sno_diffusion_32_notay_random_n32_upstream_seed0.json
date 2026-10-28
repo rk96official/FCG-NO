@@ -1,0 +1,57 @@
+[
+  {
+    "kind": "diffusion",
+    "grid": 32,
+    "model": "sno",
+    "loss": "notay",
+    "sampling": "random",
+    "normalization": "upstream",
+    "seed": 0,
+    "n_train": 32,
+    "krylov_iterations": 100,
+    "name": "sno_diffusion_32_notay_random_n32_upstream_seed0",
+    "test_grid": 32,
+    "n_iter": 64,
+    "cg_n_iter": 192,
+    "fcg": {
+      "0.001": {
+        "iterations_mean_curve": 13,
+        "iterations_sample_mean": 12.55,
+        "iterations_sample_std": 0.9733961166965893,
+        "samples_not_converged": 0
+      },
+      "1e-06": {
+        "iterations_mean_curve": 30,
+        "iterations_sample_mean": 30.1,
+        "iterations_sample_std": 1.3379088160259651,
+        "samples_not_converged": 0
+      },
+      "1e-12": {
+        "iterations_mean_curve": 64,
+        "iterations_sample_mean": NaN,
+        "iterations_sample_std": NaN,
+        "samples_not_converged": 2
+      }
+    },
+    "cg": {
+      "0.001": {
+        "iterations_mean_curve": 42,
+        "iterations_sample_mean": 41.35,
+        "iterations_sample_std": 1.9306734576307825,
+        "samples_not_converged": 0
+      },
+      "1e-06": {
+        "iterations_mean_curve": 78,
+        "iterations_sample_mean": 77.95,
+        "iterations_sample_std": 1.8567444627627139,
+        "samples_not_converged": 0
+      },
+      "1e-12": {
+        "iterations_mean_curve": 143,
+        "iterations_sample_mean": 142.65,
+        "iterations_sample_std": 1.5580436450882882,
+        "samples_not_converged": 0
+      }
+    }
+  }
+]

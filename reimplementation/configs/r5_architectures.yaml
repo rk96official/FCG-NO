@@ -1,0 +1,26 @@
+experiment: r5_architectures
+paper_reference: Table 6 (FNO, DilResNet, U-Net preconditioners), Table 9 (timing; SNO column from r2_losses)
+results_dir: results/r5_architectures
+checkpoint_dir: results/checkpoints
+cache_dir: results/datasets
+kind: [poisson, diffusion]
+grid: [32, 64, 128]
+model: [fno, dilresnet, unet]
+loss: notay
+sampling: krylov
+normalization: upstream
+seed: 0
+n_train: grid
+krylov_iterations: 100
+features: {dilresnet: {128: 16}}
+precision: {dilresnet: {128: float32}}
+test:
+  grids: same
+  n_test: 20
+  seed: 12
+  initial_guess_seed: 1
+  n_iter: 2grid
+  cg_n_iter: 6grid
+  m_max: 20
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-12]
+  timing: true

@@ -1,0 +1,48 @@
+[
+  {
+    "name": "original_code_poisson_FCG_32-32",
+    "model": "sno",
+    "kind": "poisson",
+    "grid": 32,
+    "test_grid": 32,
+    "loss": "notay",
+    "sampling": "krylov",
+    "normalization": "upstream",
+    "seed": 0,
+    "tag": "original_code",
+    "n_train": 32,
+    "n_iter": 80,
+    "source_file": "/mnt/DISCL/home/rukadel/FCG-NO/reimplementation/results/upstream_code/raw/Poisson/SNO/notay_loss_SNO_FCG_32_1_100_20_data.npz",
+    "fcg": {
+      "0.001": {
+        "iterations_mean_curve": 6,
+        "iterations_sample_mean": 5.95,
+        "iterations_sample_std": 0.21794494717703367,
+        "samples_not_converged": 0
+      },
+      "1e-06": {
+        "iterations_mean_curve": 11,
+        "iterations_sample_mean": 11.0,
+        "iterations_sample_std": 0.0,
+        "samples_not_converged": 0
+      },
+      "1e-12": {
+        "iterations_mean_curve": 22,
+        "iterations_sample_mean": 22.0,
+        "iterations_sample_std": 0.0,
+        "samples_not_converged": 0
+      }
+    },
+    "cg": {
+      "0.001": {
+        "iterations_mean_curve": -1
+      },
+      "1e-06": {
+        "iterations_mean_curve": -1
+      },
+      "1e-12": {
+        "iterations_mean_curve": -1
+      }
+    }
+  }
+]

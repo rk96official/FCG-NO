@@ -1,0 +1,30 @@
+experiment: r1_classical
+paper_reference: Table 1 (classical columns), iterations to ||r_i|| / ||r_0|| <= 1e-6
+kinds: [poisson, diffusion]
+grids: [32, 64, 128]
+n_test: 20
+test_seed: 12
+initial_guess_seed: 0
+m_max: 20
+normalization: physical
+max_iter_factor: 4
+tolerances: [1.0e-3, 1.0e-6, 1.0e-12]
+preconditioners: [identity, "jacobi:4", "sgs:1", "sgs:4", "ilu:1::NATURAL", "ilu:8:1e-5:NATURAL"]
+cache_dir: results/datasets
+output_dir: results/r1_classical
+paper_labels:
+  identity: CG
+  "jacobi:4": Jacobi(4)
+  "sgs:1": GS(1)
+  "sgs:4": GS(4)
+  "ilu:1": ILU(1)
+  "ilu:8": ILU(8)
+paper_iterations_1e-6:
+  poisson:
+    32: {identity: 74, "jacobi:4": 30, "sgs:1": 27, "sgs:4": 13, "ilu:1": 69, "ilu:8": 27}
+    64: {identity: 130, "jacobi:4": 58, "sgs:1": 47, "sgs:4": 23, "ilu:1": 110, "ilu:8": 77}
+    128: {identity: 216, "jacobi:4": 112, "sgs:1": 78, "sgs:4": 37, "ilu:1": 185, "ilu:8": 128}
+  diffusion:
+    32: {identity: 75, "jacobi:4": 32, "sgs:1": 27, "sgs:4": 13, "ilu:1": 69, "ilu:8": 27}
+    64: {identity: 132, "jacobi:4": 61, "sgs:1": 46, "sgs:4": 22, "ilu:1": 110, "ilu:8": 74}
+    128: {identity: 215, "jacobi:4": 115, "sgs:1": 78, "sgs:4": 36, "ilu:1": 177, "ilu:8": 128}

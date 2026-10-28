@@ -1,0 +1,10 @@
+kind,grid,column,tolerance,runs,ours_mean,ours_std,paper
+poisson,32,pcg_gnn,0.001,1,12.0,,8
+poisson,32,pcg_gnn,1e-06,1,22.0,,19
+poisson,32,pcg_gnn,1e-12,1,39.0,,39
+poisson,64,pcg_gnn,0.001,1,21.0,,11
+poisson,64,pcg_gnn,1e-06,1,40.0,,23
+poisson,64,pcg_gnn,1e-12,1,68.0,,47
+poisson,128,pcg_gnn,0.001,1,64.0,,20
+poisson,128,pcg_gnn,1e-06,1,115.0,,39
+poisson,128,pcg_gnn,1e-12,1,216.0,,75

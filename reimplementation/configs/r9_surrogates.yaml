@@ -1,0 +1,23 @@
+experiment: r9_surrogates
+type: surrogate
+paper_reference: Figure 1 (SNO and U-Net as direct solvers vs NO+FCG; error against a fine-grid reference). Training sizes are not given in the paper.
+results_dir: results/r9_surrogates
+cache_dir: results/datasets
+checkpoint_dir: results/checkpoints
+kind: poisson
+normalization: physical
+grids: [16, 32, 64, 128, 256]
+n_train: 1000
+n_test: 20
+train_seed: 2
+test_seed: 12
+initial_guess_seed: 1
+model_seed: 0
+reference_grid: 1023
+surrogates: {sno: 32, unet: 10}
+training: {epochs: 200, batch_size: 32}
+preconditioner:
+  config: configs/r4_cross_grid.yaml
+  run: {kind: poisson, model: sno, seed: 0}
+  by_grid: {16: {grid: 32}, 32: {grid: 32}, 64: {grid: 64}, 128: {grid: 128}, 256: {grid: 128}}
+fcg: {n_iter: 500, m_max: 20}

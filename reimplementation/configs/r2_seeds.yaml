@@ -1,0 +1,24 @@
+experiment: r2_seeds
+paper_reference: Seeds 1 and 2 of the SNO Notay / Krylov runs of r2_losses (Tables 1, 2, 3); results merge into results/r2_losses for mean ± std
+results_dir: results/r2_losses
+checkpoint_dir: results/checkpoints
+cache_dir: results/datasets
+kind: [poisson, diffusion]
+grid: [32, 64, 128]
+model: sno
+loss: notay
+sampling: krylov
+normalization: upstream
+seed: [1, 2]
+n_train: grid
+krylov_iterations: 100
+test:
+  grids: same
+  n_test: 20
+  seed: 12
+  initial_guess_seed: 1
+  n_iter: 2grid
+  cg_n_iter: 6grid
+  m_max: 20
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-12]
+  timing: true

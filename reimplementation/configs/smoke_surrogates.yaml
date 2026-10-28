@@ -1,0 +1,22 @@
+experiment: smoke_surrogates
+type: surrogate
+paper_reference: End-to-end smoke test of the Fig. 1 pipeline with tiny settings; the numbers are meaningless
+results_dir: results_smoke/r9_surrogates
+cache_dir: results_smoke/datasets
+checkpoint_dir: results_smoke/checkpoints
+kind: poisson
+normalization: physical
+grids: [16, 32]
+n_train: 16
+n_test: 4
+train_seed: 2
+test_seed: 12
+initial_guess_seed: 1
+model_seed: 0
+reference_grid: 127
+surrogates: {sno: 8, unet: 4}
+training: {epochs: 2, batch_size: 8}
+preconditioner:
+  config: configs/smoke_preconditioners.yaml
+  run: {kind: poisson, loss: notay, sampling: krylov}
+fcg: {n_iter: 128, m_max: 20}

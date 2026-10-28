@@ -1,0 +1,48 @@
+[
+  {
+    "name": "original_code_diffusion_FCG_128-128",
+    "model": "sno",
+    "kind": "diffusion",
+    "grid": 128,
+    "test_grid": 128,
+    "loss": "notay",
+    "sampling": "krylov",
+    "normalization": "upstream",
+    "seed": 0,
+    "tag": "original_code",
+    "n_train": 128,
+    "n_iter": 320,
+    "source_file": "/mnt/DISCL/home/rukadel/FCG-NO/reimplementation/results/upstream_code/raw/Elliptic/SNO/notay_loss_SNO_FCG_128_1_100_20_data.npz",
+    "fcg": {
+      "0.001": {
+        "iterations_mean_curve": 10,
+        "iterations_sample_mean": 9.95,
+        "iterations_sample_std": 0.21794494717703367,
+        "samples_not_converged": 0
+      },
+      "1e-06": {
+        "iterations_mean_curve": 24,
+        "iterations_sample_mean": 24.2,
+        "iterations_sample_std": 0.39999999999999997,
+        "samples_not_converged": 0
+      },
+      "1e-12": {
+        "iterations_mean_curve": 53,
+        "iterations_sample_mean": 52.8,
+        "iterations_sample_std": 0.5099019513592784,
+        "samples_not_converged": 0
+      }
+    },
+    "cg": {
+      "0.001": {
+        "iterations_mean_curve": -1
+      },
+      "1e-06": {
+        "iterations_mean_curve": -1
+      },
+      "1e-12": {
+        "iterations_mean_curve": -1
+      }
+    }
+  }
+]

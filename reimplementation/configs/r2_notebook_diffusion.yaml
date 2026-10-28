@@ -1,0 +1,28 @@
+experiment: r2_notebook_diffusion
+paper_reference: SNO trained with the settings of the authors notebook "Update FCG, SNO, Diffusion 2D" (lr 8e-4, 32/48/85 features, batch 32 on 32 and 64, test N_iter = 2.5 grid) to test whether they close the gap to Table 3
+results_dir: results/r2_notebook
+checkpoint_dir: results/checkpoints
+cache_dir: results/datasets
+kind: diffusion
+grid: [32, 64, 128]
+model: sno
+loss: notay
+sampling: krylov
+normalization: upstream
+seed: [0, 1, 2]
+n_train: grid
+krylov_iterations: 100
+test:
+  grids: same
+  n_test: 20
+  seed: 12
+  initial_guess_seed: 1
+  n_iter: 2.5grid
+  cg_n_iter: 6grid
+  m_max: 20
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-12]
+  timing: false
+tag: notebook
+features: {sno: {32: 32, 64: 48, 128: 85}}
+training: {learning_rate: 8.0e-4}
+training_by_grid: {32: {batch_size: 32}, 64: {batch_size: 32}}

@@ -1,0 +1,58 @@
+[
+  {
+    "kind": "poisson",
+    "grid": 32,
+    "model": "sno",
+    "loss": "notay",
+    "sampling": "krylov",
+    "normalization": "upstream",
+    "seed": 2,
+    "n_train": 32,
+    "krylov_iterations": 100,
+    "tag": "modes5",
+    "name": "sno_poisson_32_notay_krylov_n32_upstream_seed2_modes5",
+    "test_grid": 32,
+    "n_iter": 64,
+    "cg_n_iter": 192,
+    "fcg": {
+      "0.001": {
+        "iterations_mean_curve": 6,
+        "iterations_sample_mean": 6.0,
+        "iterations_sample_std": 0.0,
+        "samples_not_converged": 0
+      },
+      "1e-06": {
+        "iterations_mean_curve": 12,
+        "iterations_sample_mean": 11.55,
+        "iterations_sample_std": 0.49749371855331004,
+        "samples_not_converged": 0
+      },
+      "1e-12": {
+        "iterations_mean_curve": 24,
+        "iterations_sample_mean": 23.55,
+        "iterations_sample_std": 0.6689544080129824,
+        "samples_not_converged": 0
+      }
+    },
+    "cg": {
+      "0.001": {
+        "iterations_mean_curve": 48,
+        "iterations_sample_mean": 48.4,
+        "iterations_sample_std": 1.6552945357246849,
+        "samples_not_converged": 0
+      },
+      "1e-06": {
+        "iterations_mean_curve": 81,
+        "iterations_sample_mean": 80.4,
+        "iterations_sample_std": 2.130727575266252,
+        "samples_not_converged": 0
+      },
+      "1e-12": {
+        "iterations_mean_curve": 124,
+        "iterations_sample_mean": 123.9,
+        "iterations_sample_std": 0.7000000000000001,
+        "samples_not_converged": 0
+      }
+    }
+  }
+]

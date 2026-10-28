@@ -1,0 +1,58 @@
+[
+  {
+    "kind": "poisson",
+    "grid": 64,
+    "model": "sno",
+    "loss": "notay",
+    "sampling": "krylov",
+    "normalization": "upstream",
+    "seed": 0,
+    "n_train": 64,
+    "krylov_iterations": 100,
+    "tag": "paperdata",
+    "name": "sno_poisson_64_notay_krylov_n64_upstream_seed0_paperdata",
+    "test_grid": 64,
+    "n_iter": 128,
+    "cg_n_iter": 384,
+    "fcg": {
+      "0.001": {
+        "iterations_mean_curve": 9,
+        "iterations_sample_mean": 9.0,
+        "iterations_sample_std": 0.0,
+        "samples_not_converged": 0
+      },
+      "1e-06": {
+        "iterations_mean_curve": 19,
+        "iterations_sample_mean": 19.0,
+        "iterations_sample_std": 0.0,
+        "samples_not_converged": 0
+      },
+      "1e-12": {
+        "iterations_mean_curve": 39,
+        "iterations_sample_mean": 39.0,
+        "iterations_sample_std": 0.0,
+        "samples_not_converged": 0
+      }
+    },
+    "cg": {
+      "0.001": {
+        "iterations_mean_curve": 98,
+        "iterations_sample_mean": 95.75,
+        "iterations_sample_std": 3.973348713616765,
+        "samples_not_converged": 0
+      },
+      "1e-06": {
+        "iterations_mean_curve": 159,
+        "iterations_sample_mean": 157.4,
+        "iterations_sample_std": 4.641120554348918,
+        "samples_not_converged": 0
+      },
+      "1e-12": {
+        "iterations_mean_curve": 243,
+        "iterations_sample_mean": 243.25,
+        "iterations_sample_std": 1.3369741957120937,
+        "samples_not_converged": 0
+      }
+    }
+  }
+]
