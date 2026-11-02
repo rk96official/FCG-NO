@@ -1,0 +1,23 @@
+experiment: e0_reference
+type: reference
+description: Existing FCG-SNO checkpoints (paper and notebook settings) on the 100-system test sets; reproduction check on the first 20 systems; per-system baseline for every later experiment
+results_dir: results/e0_reference
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+checkpoint_dir: ../reimplementation/results/checkpoints
+reference_results:
+  paper: ../reimplementation/results/r2_losses
+  notebook: ../reimplementation/results/r2_notebook
+normalization: upstream
+kind: [poisson, diffusion]
+grid: [32, 64, 128]
+seed: [0, 1, 2]
+tag: [paper, notebook]
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  cg_cap: 6grid
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]
+  reproduce_tolerances: [1.0e-3, 1.0e-6, 1.0e-12]

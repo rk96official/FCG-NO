@@ -1,0 +1,79 @@
+{
+  "kind": "poisson",
+  "grid": 128,
+  "seed": 0,
+  "tag": "paper",
+  "checkpoint": "sno_poisson_128_notay_krylov_n128_upstream_seed0",
+  "train_minutes": 40.981619006798915,
+  "parameters": 718321,
+  "evaluation_seconds": 20.134917406830937,
+  "reproduction": {
+    "0.001": {
+      "ours": 11,
+      "stored": 11,
+      "match": true
+    },
+    "1e-06": {
+      "ours": -1,
+      "stored": -1,
+      "match": true
+    },
+    "1e-12": {
+      "ours": -1,
+      "stored": -1,
+      "match": true
+    }
+  },
+  "fcg": {
+    "0.001": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 11.0,
+      "p90": 35.0,
+      "max": 473.0,
+      "mean_curve": 13
+    },
+    "1e-06": {
+      "systems": 100,
+      "failure_rate": 0.36,
+      "median": 274.0,
+      "p90": null,
+      "max": null,
+      "mean_curve": -1
+    },
+    "1e-10": {
+      "systems": 100,
+      "failure_rate": 0.96,
+      "median": null,
+      "p90": null,
+      "max": null,
+      "mean_curve": -1
+    }
+  },
+  "cg": {
+    "0.001": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 195.0,
+      "p90": 202.0,
+      "max": 207.0,
+      "mean_curve": 196
+    },
+    "1e-06": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 316.0,
+      "p90": 319.0,
+      "max": 321.0,
+      "mean_curve": 316
+    },
+    "1e-10": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 434.0,
+      "p90": 437.0,
+      "max": 439.0,
+      "mean_curve": 434
+    }
+  }
+}

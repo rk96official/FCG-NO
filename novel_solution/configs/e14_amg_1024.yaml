@@ -1,0 +1,15 @@
+experiment: e14_amg_1024
+type: amg
+description: e0_amg baselines (pyamg on CPU, one core) at 1024 for the E14 grid-scaling test; results go next to the e0_amg files
+results_dir: results/e0_amg
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind: [poisson, diffusion]
+grid: [1024]
+solvers: [smoothed_aggregation, ruge_stuben]
+test:
+  n_test: 100
+  n_iter: 60
+  m_max: 20
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]

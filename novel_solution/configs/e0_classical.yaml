@@ -1,0 +1,24 @@
+experiment: e0_classical
+type: classical
+description: GPU classical baselines on the 100-system test sets - CG, Jacobi-PCG and Chebyshev-PCG (FCG with a fixed linear SPD preconditioner), per-system iterations and time per iteration. Geometric multigrid is not used because the grids (n + 1 = 33, 65, 129, 257 intervals) do not coarsen by halving; AMG (pyamg) comes in S6
+results_dir: results/e0_classical
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind: [poisson, diffusion, a1, a2]
+grid: [32, 64, 128, 256]
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 6grid
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]
+  timing_batches: [1, 16]
+  timing_iterations: 50
+variants:
+  - {smoother: identity, sweeps: 1}
+  - {smoother: jacobi, sweeps: 1}
+  - {smoother: jacobi, sweeps: 4}
+  - {smoother: chebyshev, sweeps: 2}
+  - {smoother: chebyshev, sweeps: 4}
+  - {smoother: chebyshev, sweeps: 8}

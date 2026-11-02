@@ -1,0 +1,55 @@
+experiment: e18_amgx_contrast
+description: AMGX baselines on the E15 high-contrast test sets at 128-512
+type: amgx
+results_dir: results/e0_amgx
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+test:
+  n_test: 100
+  max_iterations: 500
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+variants:
+- label: amgx_classical
+  mode: dDDI
+  preconditioner: &id001
+    algorithm: CLASSICAL
+    selector: PMIS
+    interpolator: D2
+    strength_threshold: 0.25
+    smoother: &id002
+      scope: jacobi
+      solver: BLOCK_JACOBI
+      relaxation_factor: 0.8
+    presweeps: 1
+    postsweeps: 1
+    max_levels: 50
+    coarse_solver: DENSE_LU_SOLVER
+    dense_lu_num_rows: 64
+    min_coarse_rows: 32
+- label: amgx_classical_fp32
+  mode: dFFI
+  preconditioner: *id001
+- label: amgx_aggregation
+  mode: dDDI
+  preconditioner:
+    algorithm: AGGREGATION
+    selector: SIZE_2
+    smoother: *id002
+    presweeps: 1
+    postsweeps: 1
+    max_levels: 50
+    coarse_solver: DENSE_LU_SOLVER
+    dense_lu_num_rows: 64
+    min_coarse_rows: 32
+kind:
+- grf2
+- grf4
+- grf6
+grid:
+- 128
+- 256
+- 512

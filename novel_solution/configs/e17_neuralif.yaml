@@ -1,0 +1,42 @@
+experiment: e17_neuralif
+type: neuralif
+description: NeuralIF (3 seeds) and classical IC(0) as FCG preconditioners on GPU (wavefront triangular solves) at 128-1024, setup timed separately; same test sets, guesses and report format as E13/E16
+results_dir: results/e17_neuralif
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+checkpoint_dir: results/checkpoints
+normalization: upstream
+train_grid: 128
+kind:
+- poisson
+- diffusion
+grid:
+- 128
+- 256
+- 512
+- 1024
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 20
+variants:
+- label: ic0
+  method: ic0
+- label: neuralif_s0
+  method: neuralif
+  seed: 0
+- label: neuralif_s1
+  method: neuralif
+  seed: 1
+- label: neuralif_s2
+  method: neuralif
+  seed: 2

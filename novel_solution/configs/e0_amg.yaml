@@ -1,0 +1,15 @@
+experiment: e0_amg
+type: amg
+description: CPU AMG baselines (pyamg smoothed aggregation, Ruge-Stuben) as one V-cycle preconditioners inside the same FCG on the 100-system test sets; replaces geometric multigrid, which cannot coarsen these grids by halving. Setup and solve times are CPU seconds on one core (scipy sparse)
+results_dir: results/e0_amg
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind: [poisson, diffusion, a1, a2]
+grid: [32, 64, 128, 256]
+solvers: [smoothed_aggregation, ruge_stuben]
+test:
+  n_test: 100
+  n_iter: 60
+  m_max: 20
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]

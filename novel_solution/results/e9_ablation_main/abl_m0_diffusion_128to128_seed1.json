@@ -1,0 +1,176 @@
+{
+  "kind": "diffusion",
+  "seed": 1,
+  "model": {
+    "label": "abl_m0",
+    "source": "training",
+    "train_grid": 128,
+    "round": 3
+  },
+  "test_grid": 128,
+  "name": "abl_m0_diffusion_128to128_seed1",
+  "history": 0,
+  "coefficient": false,
+  "variants": {
+    "two_level_c2_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 3.0,
+          "p90": 4.0,
+          "max": 4.0,
+          "mean_curve": 3
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 6.0,
+          "p90": 6.0,
+          "max": 7.0,
+          "mean_curve": 6
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 11.0,
+          "p90": 11.0,
+          "max": 11.0,
+          "mean_curve": 11
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0005950675718486309,
+        "16": 0.000591621920466423
+      }
+    },
+    "two_level_c4_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 5.0,
+          "p90": 5.0,
+          "max": 5.0,
+          "mean_curve": 5
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 10.0,
+          "p90": 11.0,
+          "max": 12.0,
+          "mean_curve": 10
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 17.0,
+          "p90": 18.0,
+          "max": 20.0,
+          "mean_curve": 17
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0005791635625064373,
+        "16": 0.0005660547874867916
+      }
+    },
+    "two_level_c8_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 16.0,
+          "p90": 18.0,
+          "max": 20.0,
+          "mean_curve": 16
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 41.0,
+          "p90": 43.0,
+          "max": 45.0,
+          "mean_curve": 42
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 77.0,
+          "p90": 80.0,
+          "max": 83.0,
+          "mean_curve": 78
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0005951609835028648,
+        "16": 0.0005882603488862514
+      }
+    },
+    "two_level_c16_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 38.0,
+          "p90": 44.0,
+          "max": 56.0,
+          "mean_curve": 40
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 92.0,
+          "p90": 102.0,
+          "max": 112.0,
+          "mean_curve": 95
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 166.0,
+          "p90": 175.0,
+          "max": 186.0,
+          "mean_curve": 169
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0005797041393816471,
+        "16": 0.0005876905657351016
+      }
+    },
+    "multi_b64_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 3.0,
+          "p90": 4.0,
+          "max": 4.0,
+          "mean_curve": 3
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 6.0,
+          "p90": 6.0,
+          "max": 7.0,
+          "mean_curve": 6
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 11.0,
+          "p90": 11.0,
+          "max": 11.0,
+          "mean_curve": 11
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0005914021655917168,
+        "16": 0.0005999420210719108
+      }
+    }
+  }
+}

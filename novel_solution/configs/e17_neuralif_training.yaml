@@ -1,0 +1,24 @@
+experiment: e17_neuralif_training
+type: neuralif_training
+description: 'Learned baseline NeuralIF (Hausner et al., TMLR 2024): message passing on the 5-point grid graph predicting an IC(0)-pattern factor L, trained with its stochastic Frobenius loss ||(L L^T -
+  A) w||^2 on the same 128 training problems as HC-NO; 3 seeds'
+results_dir: results/e17_neuralif_training
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+checkpoint_dir: results/checkpoints
+normalization: upstream
+kind:
+- poisson
+- diffusion
+grid: 128
+seed:
+- 0
+- 1
+- 2
+model:
+  features: 32
+  layers: 4
+train:
+  steps: 4000
+  batch_size: 8
+  learning_rate: 0.001

@@ -1,0 +1,176 @@
+{
+  "kind": "diffusion",
+  "seed": 0,
+  "model": {
+    "label": "abl_notay",
+    "source": "training",
+    "train_grid": 128,
+    "round": 3
+  },
+  "test_grid": 1024,
+  "name": "abl_notay_diffusion_128to1024_seed0",
+  "history": 1,
+  "coefficient": false,
+  "variants": {
+    "two_level_c2_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 50.0,
+          "p90": 55.0,
+          "max": 60.0,
+          "mean_curve": 50
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 109.0,
+          "p90": 114.0,
+          "max": 119.0,
+          "mean_curve": 110
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 191.0,
+          "p90": 195.0,
+          "max": 198.0,
+          "mean_curve": 191
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0011685716360807419,
+        "16": 0.016076361052691935
+      }
+    },
+    "two_level_c4_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 20.0,
+          "p90": 22.0,
+          "max": 25.0,
+          "mean_curve": 21
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 44.0,
+          "p90": 46.0,
+          "max": 50.0,
+          "mean_curve": 45
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 79.0,
+          "p90": 81.0,
+          "max": 85.0,
+          "mean_curve": 79
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0007412122935056687,
+        "16": 0.008771722465753555
+      }
+    },
+    "two_level_c8_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 10.0,
+          "p90": 12.0,
+          "max": 13.0,
+          "mean_curve": 11
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 22.0,
+          "p90": 23.0,
+          "max": 24.0,
+          "mean_curve": 22
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 38.0,
+          "p90": 39.0,
+          "max": 40.0,
+          "mean_curve": 39
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0006231984309852123,
+        "16": 0.006564755607396364
+      }
+    },
+    "two_level_c16_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 7.0,
+          "p90": 9.0,
+          "max": 11.0,
+          "mean_curve": 9
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 26.0,
+          "p90": 27.0,
+          "max": 29.0,
+          "mean_curve": 26
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 48.0,
+          "p90": 50.0,
+          "max": 52.0,
+          "mean_curve": 49
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0005945384502410889,
+        "16": 0.005674411319196224
+      }
+    },
+    "multi_b64_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 4.0,
+          "p90": 4.0,
+          "max": 4.0,
+          "mean_curve": 4
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 7.0,
+          "p90": 7.0,
+          "max": 7.0,
+          "mean_curve": 7
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 11.0,
+          "p90": 11.0,
+          "max": 12.0,
+          "mean_curve": 11
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.00087305199354887,
+        "16": 0.009347445014864206
+      }
+    }
+  }
+}

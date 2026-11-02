@@ -1,0 +1,51 @@
+{
+  "kind": "grf2",
+  "grid": 64,
+  "seed": 0,
+  "variant": {
+    "label": "m0_cg_notay",
+    "history": 0,
+    "objective": "notay",
+    "sampling": "cg",
+    "rounds": 0,
+    "init": "train"
+  },
+  "name": "m0_cg_notay_grf2_64_seed0",
+  "rounds": [
+    {
+      "round": 0,
+      "records": 6400,
+      "train_seconds": 381.6980992918834,
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 54.0,
+          "p90": 87.0,
+          "max": 131.0,
+          "mean_curve": 72
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.09,
+          "median": 162.0,
+          "p90": 241.0,
+          "max": null,
+          "mean_curve": 232
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.86,
+          "median": null,
+          "p90": null,
+          "max": null,
+          "mean_curve": -1
+        }
+      }
+    }
+  ],
+  "seconds_per_iteration": {
+    "1": 0.0008815415389835835,
+    "16": 0.0017238428443670272
+  }
+}

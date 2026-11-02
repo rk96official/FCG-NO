@@ -1,0 +1,176 @@
+{
+  "kind": "diffusion",
+  "seed": 1,
+  "model": {
+    "label": "abl_single",
+    "source": "training",
+    "train_grid": 128,
+    "round": 3
+  },
+  "test_grid": 512,
+  "name": "abl_single_diffusion_128to512_seed1",
+  "history": 1,
+  "coefficient": false,
+  "variants": {
+    "two_level_c2_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 7.0,
+          "p90": 7.0,
+          "max": 8.0,
+          "mean_curve": 7
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 16.0,
+          "p90": 16.0,
+          "max": 17.0,
+          "mean_curve": 16
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 27.0,
+          "p90": 28.0,
+          "max": 29.0,
+          "mean_curve": 28
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.00047898849472403525,
+        "16": 0.0038280943408608437
+      }
+    },
+    "two_level_c4_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 7.0,
+          "p90": 8.0,
+          "max": 9.0,
+          "mean_curve": 7
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 16.0,
+          "p90": 18.0,
+          "max": 19.0,
+          "mean_curve": 16
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 29.0,
+          "p90": 31.0,
+          "max": 34.0,
+          "mean_curve": 30
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0003931460715830326,
+        "16": 0.0021608802676200867
+      }
+    },
+    "two_level_c8_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 13.0,
+          "p90": 18.0,
+          "max": 27.0,
+          "mean_curve": 16
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 27.0,
+          "p90": 34.0,
+          "max": 49.0,
+          "mean_curve": 40
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 46.0,
+          "p90": 52.0,
+          "max": 67.0,
+          "mean_curve": 57
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.00036001509055495263,
+        "16": 0.0016489568538963794
+      }
+    },
+    "two_level_c16_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 162.0,
+          "p90": 240.0,
+          "max": 312.0,
+          "mean_curve": 211
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 562.0,
+          "p90": 716.0,
+          "max": 820.0,
+          "mean_curve": 653
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 1093.0,
+          "p90": 1264.0,
+          "max": 1429.0,
+          "mean_curve": 1221
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0003465163521468639,
+        "16": 0.0015197583846747874
+      }
+    },
+    "multi_b64_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 13.0,
+          "p90": 18.0,
+          "max": 20.0,
+          "mean_curve": 15
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 29.0,
+          "p90": 36.0,
+          "max": 40.0,
+          "mean_curve": 33
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 51.0,
+          "p90": 58.0,
+          "max": 64.0,
+          "mean_curve": 57
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.00046591190621256826,
+        "16": 0.0022271335311233997
+      }
+    }
+  }
+}

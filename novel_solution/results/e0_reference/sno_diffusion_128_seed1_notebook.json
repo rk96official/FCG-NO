@@ -1,0 +1,79 @@
+{
+  "kind": "diffusion",
+  "grid": 128,
+  "seed": 1,
+  "tag": "notebook",
+  "checkpoint": "sno_diffusion_128_notay_krylov_n128_upstream_seed1_notebook",
+  "train_minutes": 84.42447190706929,
+  "parameters": 810816,
+  "evaluation_seconds": 20.13038928201422,
+  "reproduction": {
+    "0.001": {
+      "ours": -1,
+      "stored": -1,
+      "match": true
+    },
+    "1e-06": {
+      "ours": -1,
+      "stored": -1,
+      "match": true
+    },
+    "1e-12": {
+      "ours": -1,
+      "stored": -1,
+      "match": true
+    }
+  },
+  "fcg": {
+    "0.001": {
+      "systems": 100,
+      "failure_rate": 1.0,
+      "median": null,
+      "p90": null,
+      "max": null,
+      "mean_curve": -1
+    },
+    "1e-06": {
+      "systems": 100,
+      "failure_rate": 1.0,
+      "median": null,
+      "p90": null,
+      "max": null,
+      "mean_curve": -1
+    },
+    "1e-10": {
+      "systems": 100,
+      "failure_rate": 1.0,
+      "median": null,
+      "p90": null,
+      "max": null,
+      "mean_curve": -1
+    }
+  },
+  "cg": {
+    "0.001": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 161.0,
+      "p90": 167.0,
+      "max": 177.0,
+      "mean_curve": 162
+    },
+    "1e-06": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 300.0,
+      "p90": 324.0,
+      "max": 335.0,
+      "mean_curve": 304
+    },
+    "1e-10": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 483.0,
+      "p90": 491.0,
+      "max": 498.0,
+      "mean_curve": 484
+    }
+  }
+}

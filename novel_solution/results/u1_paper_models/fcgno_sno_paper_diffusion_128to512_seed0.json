@@ -1,0 +1,81 @@
+{
+  "kind": "diffusion",
+  "seed": 0,
+  "model": {
+    "label": "fcgno_sno_paper",
+    "source": "reproduction",
+    "architecture": "sno",
+    "tag": "paper",
+    "train_grid": 128
+  },
+  "test_grid": 512,
+  "name": "fcgno_sno_paper_diffusion_128to512_seed0",
+  "history": 0,
+  "coefficient": false,
+  "variants": {
+    "plain_fp64": {
+      "iterations": {
+        "0.001": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 55.0,
+          "p90": 66.0,
+          "max": 68.0,
+          "mean_curve": 59
+        },
+        "1e-06": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 133.0,
+          "p90": 147.0,
+          "max": 150.0,
+          "mean_curve": 138
+        },
+        "1e-12": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 296.0,
+          "p90": 312.0,
+          "max": 317.0,
+          "mean_curve": 303
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.006090805502608419,
+        "16": 0.07154407664202153
+      }
+    },
+    "plain_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 57.0,
+          "p90": 69.0,
+          "max": 70.0,
+          "mean_curve": 60
+        },
+        "1e-06": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 137.0,
+          "p90": 151.0,
+          "max": 155.0,
+          "mean_curve": 143
+        },
+        "1e-12": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 306.0,
+          "p90": 321.0,
+          "max": 325.0,
+          "mean_curve": 312
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0015413509774953127,
+        "16": 0.02196750607341528
+      }
+    }
+  }
+}

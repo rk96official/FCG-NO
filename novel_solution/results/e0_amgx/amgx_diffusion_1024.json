@@ -1,0 +1,97 @@
+{
+  "kind": "diffusion",
+  "grid": 1024,
+  "name": "amgx_diffusion_1024",
+  "variants": {
+    "amgx_classical": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 5.0,
+          "p90": 5.0,
+          "max": 5.0,
+          "mean_curve": 5
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 9.0,
+          "p90": 9.0,
+          "max": 9.0,
+          "mean_curve": 9
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 14.0,
+          "p90": 14.0,
+          "max": 14.0,
+          "mean_curve": 14
+        }
+      },
+      "setup_ms_per_system": 19.61794914677739,
+      "solve_ms_per_system": 7.234837394207716
+    },
+    "amgx_classical_fp32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 5.0,
+          "p90": 5.0,
+          "max": 5.0,
+          "mean_curve": 5
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 9.0,
+          "p90": 9.0,
+          "max": 9.0,
+          "mean_curve": 9
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 1.0,
+          "median": null,
+          "p90": null,
+          "max": null,
+          "mean_curve": -1
+        }
+      },
+      "setup_ms_per_system": 19.024451728910208,
+      "solve_ms_per_system": 6.123318336904049
+    },
+    "amgx_aggregation": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 42.0,
+          "p90": 45.0,
+          "max": 49.0,
+          "mean_curve": 42
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 81.0,
+          "p90": 85.0,
+          "max": 89.0,
+          "mean_curve": 82
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 132.0,
+          "p90": 136.0,
+          "max": 140.0,
+          "mean_curve": 135
+        }
+      },
+      "setup_ms_per_system": 12.029818259179592,
+      "solve_ms_per_system": 62.82411701977253
+    }
+  }
+}

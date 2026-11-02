@@ -1,0 +1,198 @@
+{
+  "kind": "diffusion",
+  "grid": 128,
+  "variants": {
+    "cg": {
+      "iterations": {
+        "0.001": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 161.0,
+          "p90": 166.0,
+          "max": 168.0,
+          "mean_curve": 162
+        },
+        "1e-06": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 300.0,
+          "p90": 318.0,
+          "max": 327.0,
+          "mean_curve": 301
+        },
+        "1e-12": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 551.0,
+          "p90": 561.0,
+          "max": 571.0,
+          "mean_curve": 553
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 4.031460732221604e-05,
+        "16": 7.213106378912926e-05
+      }
+    },
+    "jacobi1": {
+      "iterations": {
+        "0.001": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 158.0,
+          "p90": 162.0,
+          "max": 164.0,
+          "mean_curve": 159
+        },
+        "1e-06": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 293.0,
+          "p90": 321.0,
+          "max": 322.0,
+          "mean_curve": 298
+        },
+        "1e-12": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 539.0,
+          "p90": 545.0,
+          "max": 546.0,
+          "mean_curve": 540
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 4.1558537632226943e-05,
+        "16": 7.423397153615951e-05
+      }
+    },
+    "jacobi4": {
+      "iterations": {
+        "0.001": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 66.0,
+          "p90": 69.0,
+          "max": 69.0,
+          "mean_curve": 67
+        },
+        "1e-06": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 125.0,
+          "p90": 137.0,
+          "max": 138.0,
+          "mean_curve": 126
+        },
+        "1e-12": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 232.0,
+          "p90": 234.0,
+          "max": 235.0,
+          "mean_curve": 233
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 4.465918987989426e-05,
+        "16": 8.343817666172981e-05
+      }
+    },
+    "chebyshev2": {
+      "iterations": {
+        "0.001": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 87.0,
+          "p90": 89.0,
+          "max": 90.0,
+          "mean_curve": 87
+        },
+        "1e-06": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 160.0,
+          "p90": 176.0,
+          "max": 177.0,
+          "mean_curve": 163
+        },
+        "1e-12": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 295.0,
+          "p90": 299.0,
+          "max": 299.0,
+          "mean_curve": 296
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 4.304924979805946e-05,
+        "16": 7.738344371318817e-05
+      }
+    },
+    "chebyshev4": {
+      "iterations": {
+        "0.001": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 50.0,
+          "p90": 51.0,
+          "max": 52.0,
+          "mean_curve": 50
+        },
+        "1e-06": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 92.0,
+          "p90": 101.0,
+          "max": 101.0,
+          "mean_curve": 94
+        },
+        "1e-12": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 169.0,
+          "p90": 171.0,
+          "max": 171.0,
+          "mean_curve": 169
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 4.573723301291466e-05,
+        "16": 9.923037141561508e-05
+      }
+    },
+    "chebyshev8": {
+      "iterations": {
+        "0.001": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 31.0,
+          "p90": 32.0,
+          "max": 33.0,
+          "mean_curve": 31
+        },
+        "1e-06": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 59.0,
+          "p90": 64.0,
+          "max": 65.0,
+          "mean_curve": 59
+        },
+        "1e-12": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 110.0,
+          "p90": 110.0,
+          "max": 111.0,
+          "mean_curve": 110
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 5.2972845733165744e-05,
+        "16": 0.00011303575709462166
+      }
+    }
+  }
+}

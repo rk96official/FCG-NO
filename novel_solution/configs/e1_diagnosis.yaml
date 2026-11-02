@@ -1,0 +1,28 @@
+experiment: e1_diagnosis
+type: diagnosis
+description: Why FCG-SNO stalls, on existing checkpoints without retraining. Per-step Notay ratio, A-angles, measured contraction and error energy outside the 20 SNO modes; full orthogonalization; causal interventions at bad-angle steps (residual swap, oracle angle cap); network quality on CG residuals (training distribution) vs its own FCG residuals
+results_dir: results/e1_diagnosis
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+checkpoint_dir: ../reimplementation/results/checkpoints
+normalization: upstream
+kind: [poisson, diffusion]
+grid: [64, 128]
+seed: [0, 1, 2]
+tag: [paper, notebook]
+collapse_loss: 0.5
+n_modes: 20
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  active_floor: 1.0e-10
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]
+variants:
+  - {name: base}
+  - {name: full_orthogonalization}
+  - {name: residual_swap, threshold: 0.9}
+  - {name: angle_cap, threshold: 0.9}
+  - {name: angle_cap, threshold: 0.75}
+  - {name: cg_observer}

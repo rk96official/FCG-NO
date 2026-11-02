@@ -1,0 +1,92 @@
+experiment: e20_jump_training
+type: training
+description: 'Jump coefficients (E20): binary media a in {1, 10^2/10^4/10^6} with curved interfaces not aligned with any grid, where setup-free rediscretized multigrid breaks down (CPU probe: 101-139 iterations
+  on jump6) and Galerkin GMG degrades (17-18). Final recipe trained at 128: network as the coarse solve on 64 with log a (bounded by the Galerkin two-grid rate, Theorem 3), and with the network also as
+  a line-searched fine-grid correction (fine_network, not confined to range(P)), without and with log a; 3 seeds'
+results_dir: results/e20_jump_training
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+m_max: 20
+krylov_iterations: 100
+kind:
+- jump2
+- jump4
+- jump6
+grid: 128
+seed:
+- 0
+- 1
+- 2
+settings:
+  jump2: &id001
+    learning_rate: 0.0008
+    features:
+      32: 32
+      64: 32
+      128: 32
+    batch_size:
+      32: 32
+      64: 32
+  jump4: *id001
+  jump6: *id001
+collection:
+  steps: 100
+  floor: 1.0e-10
+  chunk: 8
+  round_fraction: 0.5
+fine_tune:
+  epochs: 30
+  learning_rate_scale: 0.5
+test:
+  n_test: 100
+  chunk: 20
+  cap: 4grid
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 50
+variant:
+- label: jr_2l_coef
+  history: 1
+  objective: step
+  scale_weight: 0.05
+  sampling: onpolicy
+  rounds: 3
+  init: train
+  coefficient: true
+  two_level:
+    coarsen: 2
+    smoother: chebyshev
+    sweeps: 2
+- label: jr_fine
+  history: 1
+  objective: step
+  scale_weight: 0.05
+  sampling: onpolicy
+  rounds: 3
+  init: train
+  two_level:
+    coarsen: 2
+    smoother: chebyshev
+    sweeps: 2
+    fine_network: true
+- label: jr_fine_coef
+  history: 1
+  objective: step
+  scale_weight: 0.05
+  sampling: onpolicy
+  rounds: 3
+  init: train
+  coefficient: true
+  two_level:
+    coarsen: 2
+    smoother: chebyshev
+    sweeps: 2
+    fine_network: true

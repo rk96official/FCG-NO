@@ -1,0 +1,31 @@
+experiment: e7_coefficient
+type: training
+description: Non-smooth coefficients a1, a2 (paper App. C) at 32 and 64, paper settings, 3 seeds. Midterm recheck of a1 with three seeds (memoryless CG Notay), the log a input channel (memoryless and with HC-NO), and HC-NO alone; the report also checks whether failures coincide with the highest-contrast systems
+results_dir: results/e7_coefficient
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+m_max: 20
+krylov_iterations: 100
+kind: [a1, a2]
+grid: [32, 64]
+seed: [0, 1, 2]
+settings:
+  a1: {learning_rate: 5.0e-4, features: {32: 48, 64: 64}, batch_size: {}}
+  a2: {learning_rate: 5.0e-4, features: {32: 48, 64: 64}, batch_size: {}}
+collection: {steps: 100, floor: 1.0e-10, chunk: 16, round_fraction: 0.5}
+fine_tune: {epochs: 30, learning_rate_scale: 0.5}
+test:
+  n_test: 100
+  chunk: 20
+  cap: 4grid
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]
+  timing_batches: [1, 16]
+  timing_iterations: 50
+variant:
+  - {label: m0_cg_notay, history: 0, objective: notay, sampling: cg, rounds: 0, init: train}
+  - {label: c1_cg_notay, history: 0, coefficient: true, objective: notay, sampling: cg, rounds: 0, init: train}
+  - {label: h1_on_step, history: 1, objective: step, scale_weight: 0.05, sampling: onpolicy, rounds: 3, init: train}
+  - {label: c1h1_on_step, history: 1, coefficient: true, objective: step, scale_weight: 0.05, sampling: onpolicy, rounds: 3, init: train}

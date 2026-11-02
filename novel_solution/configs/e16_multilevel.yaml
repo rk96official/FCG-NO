@@ -1,0 +1,111 @@
+experiment: e16_multilevel
+type: multigrid
+description: 'Multi-level vs classical multigrid on GPU, same job: Galerkin GMG (setup timed), setup-free rediscretized multi-level with a dense 16 bottom (GMG without setup), an exact or Chebyshev(8) 64
+  bottom, and the network as the bottom solve (E14 models zero-shot; E16 multi-level and recursive models), seed 0, TF32'
+results_dir: results/e16_multilevel
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- poisson
+- diffusion
+grid:
+- 128
+- 256
+- 512
+- 1024
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 50
+variants:
+- label: gmg_vcycle_fp32coarse
+  method: gmg
+  sweeps: 2
+  coarse_dtype: float32
+- label: redisc_dense16
+  method: rediscretized
+  coarse_grid: 16
+  smoother: chebyshev
+  sweeps: 2
+  bottom: dense
+  bottom_sweeps: 8
+- label: redisc_exact64
+  method: rediscretized
+  coarse_grid: 64
+  smoother: chebyshev
+  sweeps: 2
+  bottom: dense
+  bottom_sweeps: 8
+- label: redisc_cheb8_64
+  method: rediscretized
+  coarse_grid: 64
+  smoother: chebyshev
+  sweeps: 2
+  bottom: chebyshev
+  bottom_sweeps: 8
+- label: redisc_exact32
+  method: rediscretized
+  coarse_grid: 32
+  smoother: chebyshev
+  sweeps: 2
+  bottom: dense
+  bottom_sweeps: 8
+- label: ml64_e14
+  method: network
+  levels: multi
+  coarse_grid: 64
+  model:
+    label: final_2l2
+    train_grid: 128
+    round: 3
+    seed: 0
+- label: ml32_e14
+  method: network
+  levels: multi
+  coarse_grid: 32
+  model:
+    label: final_2l4
+    train_grid: 128
+    round: 3
+    seed: 0
+- label: ml32_trained
+  method: network
+  levels: multi
+  coarse_grid: 32
+  model:
+    label: ml_b32
+    train_grid: 128
+    round: 3
+    seed: 0
+- label: rec32_max64_trained
+  method: network
+  levels: multi
+  coarse_grid: 32
+  model:
+    label: rec_b32
+    train_grid: 128
+    round: 3
+    seed: 0
+  network_max: 64
+- label: rec32_max128_trained
+  method: network
+  levels: multi
+  coarse_grid: 32
+  model:
+    label: rec_b32
+    train_grid: 128
+    round: 3
+    seed: 0
+  network_max: 128

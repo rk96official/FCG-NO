@@ -1,0 +1,32 @@
+experiment: e10_main
+type: main
+description: 'Deployed evaluation of the E10 two-level-trained models (TF32, fp64 reference, safeguard) at 128, 256 and 512, with coarsening 2 to 16 so each model meets its training coarse grid (2l2: 64 = 128/2, 256/4, 512/8; 2l4: 32 = 128/4, 256/8, 512/16); 512 tests grid scaling. Submit after E10 has finished; 512 baselines come from e10_classical_512 and e10_amg_512'
+results_dir: results/e10_main
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind: [poisson, diffusion]
+seed: [0, 1, 2]
+model:
+  - {label: h1_on_step_2l2, source: training, train_grid: 128, round: 3}
+  - {label: h1_on_step_2l4, source: training, train_grid: 128, round: 3}
+  - {label: m0_on_step_2l4, source: training, train_grid: 128, round: 3}
+test_grid: [128, 256, 512]
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  active_floor: 1.0e-10
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]
+  timing_batches: [1, 16]
+  timing_iterations: 50
+variants:
+  - {label: two_level_c4_cheb2, two_level: {coarsen: 4, smoother: chebyshev, sweeps: 2}}
+  - {label: two_level_c2_cheb2_tf32, two_level: {coarsen: 2, smoother: chebyshev, sweeps: 2}, precision: {dtype: float32}}
+  - {label: two_level_c4_cheb2_tf32, two_level: {coarsen: 4, smoother: chebyshev, sweeps: 2}, precision: {dtype: float32}}
+  - {label: two_level_c8_cheb2_tf32, two_level: {coarsen: 8, smoother: chebyshev, sweeps: 2}, precision: {dtype: float32}}
+  - {label: two_level_c16_cheb2_tf32, two_level: {coarsen: 16, smoother: chebyshev, sweeps: 2}, precision: {dtype: float32}}
+  - {label: two_level_c4_cheb2_safeguard_tf32, two_level: {coarsen: 4, smoother: chebyshev, sweeps: 2}, safeguard: {fallback: chebyshev, sweeps: 2}, precision: {dtype: float32}}

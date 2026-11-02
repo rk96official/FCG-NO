@@ -1,0 +1,82 @@
+experiment: e14_final_training
+type: training
+description: 'Final recipe, trained: HC-NO (history 1, step loss, on-policy, 3 rounds) trained through the two-level preconditioner at 128 (Chebyshev(2) fine smoothing, network on the 64 or 32 coarse grid),
+  32 features for both problems (E12: 32 keeps the iterations at a quarter of the cost), 5 seeds. Evaluated in deployment by e14_main'
+results_dir: results/e14_final_training
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+m_max: 20
+krylov_iterations: 100
+kind:
+- poisson
+- diffusion
+grid: 128
+seed:
+- 0
+- 1
+- 2
+- 3
+- 4
+settings:
+  poisson:
+    learning_rate: 0.001
+    features:
+      32: 32
+      64: 32
+      128: 32
+    batch_size: {}
+  diffusion:
+    learning_rate: 0.0008
+    features:
+      32: 32
+      64: 32
+      128: 32
+    batch_size:
+      32: 32
+      64: 32
+collection:
+  steps: 100
+  floor: 1.0e-10
+  chunk: 8
+  round_fraction: 0.5
+fine_tune:
+  epochs: 30
+  learning_rate_scale: 0.5
+test:
+  n_test: 100
+  chunk: 20
+  cap: 4grid
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 50
+variant:
+- label: final_2l2
+  history: 1
+  objective: step
+  scale_weight: 0.05
+  sampling: onpolicy
+  rounds: 3
+  init: train
+  two_level:
+    coarsen: 2
+    smoother: chebyshev
+    sweeps: 2
+- label: final_2l4
+  history: 1
+  objective: step
+  scale_weight: 0.05
+  sampling: onpolicy
+  rounds: 3
+  init: train
+  two_level:
+    coarsen: 4
+    smoother: chebyshev
+    sweeps: 2

@@ -1,0 +1,370 @@
+{
+  "kind": "diffusion",
+  "seed": 1,
+  "case": {
+    "train_grid": 128,
+    "test_grid": 256,
+    "tag": "transfer"
+  },
+  "checkpoint": "sno_diffusion_128_notay_krylov_n100_upstream_seed1",
+  "variants": {
+    "base": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 1.0,
+          "median": null,
+          "p90": null,
+          "max": null,
+          "mean_curve": -1
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 1.0,
+          "median": null,
+          "p90": null,
+          "max": null,
+          "mean_curve": -1
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 1.0,
+          "median": null,
+          "p90": null,
+          "max": null,
+          "mean_curve": -1
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.002743241023272276,
+        "16": 0.019375304440036416
+      }
+    },
+    "tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 1.0,
+          "median": null,
+          "p90": null,
+          "max": null,
+          "mean_curve": -1
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 1.0,
+          "median": null,
+          "p90": null,
+          "max": null,
+          "mean_curve": -1
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 1.0,
+          "median": null,
+          "p90": null,
+          "max": null,
+          "mean_curve": -1
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0005621535237878561,
+        "16": 0.005452473200857639
+      }
+    },
+    "wrapper_cheb2": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 152.0,
+          "p90": 174.0,
+          "max": 219.0,
+          "mean_curve": 156
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 394.0,
+          "p90": 454.0,
+          "max": 503.0,
+          "mean_curve": 422
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 697.0,
+          "p90": 838.0,
+          "max": 912.0,
+          "mean_curve": 786
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0027506626583635807,
+        "16": 0.01944228651933372
+      }
+    },
+    "wrapper_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 152.0,
+          "p90": 174.0,
+          "max": 219.0,
+          "mean_curve": 156
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 394.0,
+          "p90": 454.0,
+          "max": 503.0,
+          "mean_curve": 422
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 697.0,
+          "p90": 838.0,
+          "max": 912.0,
+          "mean_curve": 786
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0005708521418273448,
+        "16": 0.00553213382139802
+      }
+    },
+    "wrapper_cheb4_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 64.0,
+          "p90": 70.0,
+          "max": 84.0,
+          "mean_curve": 64
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 172.0,
+          "p90": 190.0,
+          "max": 200.0,
+          "mean_curve": 178
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 312.0,
+          "p90": 337.0,
+          "max": 378.0,
+          "mean_curve": 325
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.00058240357786417,
+        "16": 0.005681186905130744
+      }
+    },
+    "wrapper_cheb2_safeguard_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 135.0,
+          "p90": 192.0,
+          "max": 227.0,
+          "mean_curve": 149
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 386.0,
+          "p90": 472.0,
+          "max": 583.0,
+          "mean_curve": 432
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.01,
+          "median": 719.0,
+          "p90": 836.0,
+          "max": null,
+          "mean_curve": 836
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0005930176191031932,
+        "16": 0.0056383510585874316
+      },
+      "fallback_share": 0.19799661765586907
+    },
+    "wrapper_cheb2_safeguard_every2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 175.0,
+          "p90": 215.0,
+          "max": 253.0,
+          "mean_curve": 183
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 473.0,
+          "p90": 541.0,
+          "max": 611.0,
+          "mean_curve": 505
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.01,
+          "median": 857.0,
+          "p90": 979.0,
+          "max": null,
+          "mean_curve": 943
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0003458000626415014,
+        "16": 0.0029278826992958783
+      },
+      "fallback_share": 0.5344571986917973
+    },
+    "safeguard_every2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 136.0,
+          "p90": 153.0,
+          "max": 175.0,
+          "mean_curve": 137
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 307.0,
+          "p90": 324.0,
+          "max": 338.0,
+          "mean_curve": 308
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 541.0,
+          "p90": 545.0,
+          "max": 551.0,
+          "mean_curve": 541
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0003420170210301876,
+        "16": 0.0028926713392138483
+      },
+      "fallback_share": 0.9991736004805286
+    },
+    "safeguard_every4_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 143.0,
+          "p90": 161.0,
+          "max": 176.0,
+          "mean_curve": 144
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 335.0,
+          "p90": 350.0,
+          "max": 363.0,
+          "mean_curve": 335
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 561.0,
+          "p90": 598.0,
+          "max": 623.0,
+          "mean_curve": 577
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0002153071854263544,
+        "16": 0.001650895858183503
+      },
+      "fallback_share": 0.9985179665113096
+    },
+    "wrapper_cheb2_safeguard_every4": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 201.0,
+          "p90": 213.0,
+          "max": 252.0,
+          "mean_curve": 201
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 479.0,
+          "p90": 540.0,
+          "max": 561.0,
+          "mean_curve": 501
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 843.0,
+          "p90": 954.0,
+          "max": 995.0,
+          "mean_curve": 905
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0007810742221772671,
+        "16": 0.005324278976768255
+      },
+      "fallback_share": 0.770492179680632
+    },
+    "wrapper_cheb2_safeguard_every4_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 201.0,
+          "p90": 213.0,
+          "max": 252.0,
+          "mean_curve": 201
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 479.0,
+          "p90": 540.0,
+          "max": 561.0,
+          "mean_curve": 501
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 843.0,
+          "p90": 951.0,
+          "max": 1019.0,
+          "mean_curve": 905
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.00021809201687574386,
+        "16": 0.0016686613019555807
+      },
+      "fallback_share": 0.7704941034973124
+    }
+  }
+}

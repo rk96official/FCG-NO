@@ -1,0 +1,176 @@
+{
+  "kind": "poisson",
+  "seed": 2,
+  "model": {
+    "label": "abl_single",
+    "source": "training",
+    "train_grid": 128,
+    "round": 3
+  },
+  "test_grid": 256,
+  "name": "abl_single_poisson_128to256_seed2",
+  "history": 1,
+  "coefficient": false,
+  "variants": {
+    "two_level_c2_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 7.0,
+          "p90": 7.0,
+          "max": 7.0,
+          "mean_curve": 7
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 13.0,
+          "p90": 13.0,
+          "max": 14.0,
+          "mean_curve": 13
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 20.0,
+          "p90": 21.0,
+          "max": 21.0,
+          "mean_curve": 20
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0005715207010507584,
+        "16": 0.0011291236616671086
+      }
+    },
+    "two_level_c4_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 9.0,
+          "p90": 10.0,
+          "max": 11.0,
+          "mean_curve": 10
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 18.0,
+          "p90": 19.0,
+          "max": 19.0,
+          "mean_curve": 18
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 29.0,
+          "p90": 31.0,
+          "max": 33.0,
+          "mean_curve": 30
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0005954919941723347,
+        "16": 0.0007073456794023514
+      }
+    },
+    "two_level_c8_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 64.0,
+          "p90": 84.0,
+          "max": 98.0,
+          "mean_curve": 73
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 132.0,
+          "p90": 170.0,
+          "max": 191.0,
+          "mean_curve": 160
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 231.0,
+          "p90": 268.0,
+          "max": 301.0,
+          "mean_curve": 260
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0005749412253499031,
+        "16": 0.0006066054105758667
+      }
+    },
+    "two_level_c16_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 139.0,
+          "p90": 155.0,
+          "max": 174.0,
+          "mean_curve": 148
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 299.0,
+          "p90": 319.0,
+          "max": 341.0,
+          "mean_curve": 308
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 514.0,
+          "p90": 543.0,
+          "max": 567.0,
+          "mean_curve": 527
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.000584307461977005,
+        "16": 0.0005902606621384621
+      }
+    },
+    "multi_b64_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 9.0,
+          "p90": 10.0,
+          "max": 11.0,
+          "mean_curve": 9
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 19.0,
+          "p90": 22.0,
+          "max": 30.0,
+          "mean_curve": 21
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 34.0,
+          "p90": 38.0,
+          "max": 47.0,
+          "mean_curve": 40
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.000588359571993351,
+        "16": 0.0008274035528302193
+      }
+    }
+  }
+}

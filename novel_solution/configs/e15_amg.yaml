@@ -1,0 +1,26 @@
+experiment: e15_amg
+type: amg
+description: e11_amg baselines on the high-contrast coefficients at 128, 256 and 512 (E15)
+results_dir: results/e0_amg
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- grf2
+- grf4
+- grf6
+grid:
+- 128
+- 256
+- 512
+solvers:
+- smoothed_aggregation
+- ruge_stuben
+test:
+  n_test: 100
+  n_iter: 60
+  m_max: 20
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10

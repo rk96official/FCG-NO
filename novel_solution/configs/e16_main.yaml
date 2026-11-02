@@ -1,0 +1,83 @@
+experiment: e16_main
+type: main
+description: Multi-level deployment (setup-free rediscretized levels down to a 64 or 32 bottom grid, TF32 network) of the E14 two-level models (zero-shot) and the E16 multi-level / recursive models, 5 seeds,
+  at 128-1024
+results_dir: results/e16_main
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- poisson
+- diffusion
+seed:
+- 0
+- 1
+- 2
+- 3
+- 4
+model:
+- label: final_2l2
+  source: training
+  train_grid: 128
+  round: 3
+- label: final_2l4
+  source: training
+  train_grid: 128
+  round: 3
+- label: ml_b32
+  source: training
+  train_grid: 128
+  round: 3
+- label: rec_b32
+  source: training
+  train_grid: 128
+  round: 3
+test_grid:
+- 128
+- 256
+- 512
+- 1024
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  active_floor: 1.0e-10
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 50
+variants:
+- label: multi_b64_tf32
+  two_level:
+    coarse_grid: 64
+    smoother: chebyshev
+    sweeps: 2
+  precision: &id001
+    dtype: float32
+- label: multi_b32_tf32
+  two_level:
+    coarse_grid: 32
+    smoother: chebyshev
+    sweeps: 2
+  precision: *id001
+- label: recursive_b32_max64_tf32
+  two_level:
+    coarse_grid: 32
+    smoother: chebyshev
+    sweeps: 2
+    network_max: 64
+  precision: *id001
+- label: recursive_b32_max128_tf32
+  two_level:
+    coarse_grid: 32
+    smoother: chebyshev
+    sweeps: 2
+    network_max: 128
+  precision: *id001

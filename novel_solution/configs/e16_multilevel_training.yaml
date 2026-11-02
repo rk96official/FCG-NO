@@ -1,0 +1,83 @@
+experiment: e16_multilevel_training
+type: training
+description: 'Final recipe (HC-NO, step loss, on-policy, 3 rounds, 32 features) trained at 128 inside the setup-free multi-level scheme: rediscretized levels 128 -> 64 -> 32 with Chebyshev(2) and line-searched
+  coarse steps; ml_b32 has the network as the bottom solve on 32, rec_b32 also applies the same network as a line-searched correction on the 64 level (recursive form). 5 seeds'
+results_dir: results/e16_multilevel_training
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+m_max: 20
+krylov_iterations: 100
+kind:
+- poisson
+- diffusion
+grid: 128
+seed:
+- 0
+- 1
+- 2
+- 3
+- 4
+settings:
+  poisson:
+    learning_rate: 0.001
+    features:
+      32: 32
+      64: 32
+      128: 32
+    batch_size: {}
+  diffusion:
+    learning_rate: 0.0008
+    features:
+      32: 32
+      64: 32
+      128: 32
+    batch_size:
+      32: 32
+      64: 32
+collection:
+  steps: 100
+  floor: 1.0e-10
+  chunk: 8
+  round_fraction: 0.5
+fine_tune:
+  epochs: 30
+  learning_rate_scale: 0.5
+test:
+  n_test: 100
+  chunk: 20
+  cap: 4grid
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 50
+variant:
+- label: ml_b32
+  history: 1
+  objective: step
+  scale_weight: 0.05
+  sampling: onpolicy
+  rounds: 3
+  init: train
+  two_level:
+    coarse_grid: 32
+    smoother: chebyshev
+    sweeps: 2
+- label: rec_b32
+  history: 1
+  objective: step
+  scale_weight: 0.05
+  sampling: onpolicy
+  rounds: 3
+  init: train
+  two_level:
+    coarse_grid: 32
+    smoother: chebyshev
+    sweeps: 2
+    network_max: 64

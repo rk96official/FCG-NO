@@ -1,0 +1,79 @@
+{
+  "kind": "diffusion",
+  "grid": 32,
+  "seed": 1,
+  "tag": "paper",
+  "checkpoint": "sno_diffusion_32_notay_krylov_n32_upstream_seed1",
+  "train_minutes": 3.1565102483495138,
+  "parameters": 258961,
+  "evaluation_seconds": 0.7955585713498294,
+  "reproduction": {
+    "0.001": {
+      "ours": 6,
+      "stored": 6,
+      "match": true
+    },
+    "1e-06": {
+      "ours": 11,
+      "stored": 11,
+      "match": true
+    },
+    "1e-12": {
+      "ours": 22,
+      "stored": 22,
+      "match": true
+    }
+  },
+  "fcg": {
+    "0.001": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 6.0,
+      "p90": 6.0,
+      "max": 6.0,
+      "mean_curve": 6
+    },
+    "1e-06": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 11.0,
+      "p90": 11.0,
+      "max": 11.0,
+      "mean_curve": 11
+    },
+    "1e-10": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 18.0,
+      "p90": 18.0,
+      "max": 19.0,
+      "mean_curve": 18
+    }
+  },
+  "cg": {
+    "0.001": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 42.0,
+      "p90": 44.0,
+      "max": 46.0,
+      "mean_curve": 42
+    },
+    "1e-06": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 78.0,
+      "p90": 80.0,
+      "max": 86.0,
+      "mean_curve": 78
+    },
+    "1e-10": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 125.0,
+      "p90": 126.0,
+      "max": 128.0,
+      "mean_curve": 125
+    }
+  }
+}

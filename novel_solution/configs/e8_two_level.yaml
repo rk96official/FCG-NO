@@ -1,0 +1,101 @@
+experiment: e8_two_level
+type: main
+description: 'Two-level preconditioner: Chebyshev pre/post smoothing on the fine grid, the network on a grid coarsened 2x or 4x (restricted residual and history, bilinear prolongation, exact energy line
+  search so the network''s output scale is irrelevant). Cuts the network cost 4-16x; at 256 with coarsening 2 the network runs at its 128 training grid. Same models and grids as E6; the fine-grid wrapper
+  is the reference row. Submit after E4b has finished'
+results_dir: results/e8_two_level
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- poisson
+- diffusion
+seed:
+- 0
+- 1
+- 2
+model:
+- label: notebook
+  source: notebook
+  train_grid: 128
+- label: h1_on_step
+  source: training
+  train_grid: 128
+  round: 3
+- label: m0_on_step
+  source: training
+  train_grid: 128
+  round: 3
+test_grid:
+- 128
+- 256
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  active_floor: 1.0e-10
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 50
+variants:
+- label: wrapper_cheb2_tf32
+  wrapper:
+    smoother: chebyshev
+    sweeps: 2
+  precision: &id001
+    dtype: float32
+- label: two_level_c2_cheb2_tf32
+  two_level:
+    coarsen: 2
+    smoother: chebyshev
+    sweeps: 2
+  precision: *id001
+- label: two_level_c2_cheb4_tf32
+  two_level:
+    coarsen: 2
+    smoother: chebyshev
+    sweeps: 4
+  precision: *id001
+- label: two_level_c4_cheb2_tf32
+  two_level:
+    coarsen: 4
+    smoother: chebyshev
+    sweeps: 2
+  precision: *id001
+- label: two_level_c4_cheb4_tf32
+  two_level:
+    coarsen: 4
+    smoother: chebyshev
+    sweeps: 4
+  precision: *id001
+- label: two_level_c2_cheb2_safeguard_tf32
+  two_level:
+    coarsen: 2
+    smoother: chebyshev
+    sweeps: 2
+  safeguard: &id002
+    fallback: chebyshev
+    sweeps: 2
+  precision: *id001
+- label: two_level_c4_cheb2_safeguard_tf32
+  two_level:
+    coarsen: 4
+    smoother: chebyshev
+    sweeps: 2
+  safeguard: *id002
+  precision: *id001
+- label: two_level_c4_cheb4_safeguard_tf32
+  two_level:
+    coarsen: 4
+    smoother: chebyshev
+    sweeps: 4
+  safeguard: *id002
+  precision: *id001

@@ -1,0 +1,90 @@
+experiment: e9_ablation_main
+type: main
+description: E9 ablation models deployed like E14 (two-level c2-c16, TF32) and in the multi-level scheme (bottom 64), 5 seeds, at 128-1024
+results_dir: results/e9_ablation_main
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- poisson
+- diffusion
+seed:
+- 0
+- 1
+- 2
+- 3
+- 4
+model:
+- label: abl_m0
+  source: training
+  train_grid: 128
+  round: 3
+- label: abl_notay
+  source: training
+  train_grid: 128
+  round: 3
+- label: abl_cg
+  source: training
+  train_grid: 128
+  round: 3
+- label: abl_single
+  source: training
+  train_grid: 128
+  round: 3
+test_grid:
+- 128
+- 256
+- 512
+- 1024
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  active_floor: 1.0e-10
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 50
+variants:
+- label: two_level_c2_cheb2_tf32
+  two_level:
+    coarsen: 2
+    smoother: chebyshev
+    sweeps: 2
+  precision:
+    dtype: float32
+- label: two_level_c4_cheb2_tf32
+  two_level:
+    coarsen: 4
+    smoother: chebyshev
+    sweeps: 2
+  precision:
+    dtype: float32
+- label: two_level_c8_cheb2_tf32
+  two_level:
+    coarsen: 8
+    smoother: chebyshev
+    sweeps: 2
+  precision:
+    dtype: float32
+- label: two_level_c16_cheb2_tf32
+  two_level:
+    coarsen: 16
+    smoother: chebyshev
+    sweeps: 2
+  precision:
+    dtype: float32
+- label: multi_b64_tf32
+  two_level:
+    coarse_grid: 64
+    smoother: chebyshev
+    sweeps: 2
+  precision:
+    dtype: float32

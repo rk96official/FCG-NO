@@ -1,0 +1,178 @@
+{
+  "kind": "diffusion",
+  "seed": 0,
+  "model": {
+    "label": "h1_on_step",
+    "source": "training",
+    "train_grid": 128,
+    "round": 3
+  },
+  "test_grid": 128,
+  "name": "h1_on_step_diffusion_128to128_seed0",
+  "history": 1,
+  "coefficient": false,
+  "variants": {
+    "tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 9.0,
+          "p90": 10.0,
+          "max": 10.0,
+          "mean_curve": 9
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 21.0,
+          "p90": 21.0,
+          "max": 22.0,
+          "mean_curve": 21
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 37.0,
+          "p90": 37.0,
+          "max": 38.0,
+          "mean_curve": 37
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0006960694026201963,
+        "16": 0.0031334965210407973
+      }
+    },
+    "safeguard_every4_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 10.0,
+          "p90": 10.0,
+          "max": 10.0,
+          "mean_curve": 10
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 24.0,
+          "p90": 25.0,
+          "max": 26.0,
+          "mean_curve": 24
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 43.0,
+          "p90": 47.0,
+          "max": 50.0,
+          "mean_curve": 45
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.00026534960605204103,
+        "16": 0.0009488239977508783
+      },
+      "fallback_share": 0.7441020573866649
+    },
+    "two_level_c2_cheb2_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 16.0,
+          "p90": 22.0,
+          "max": 31.0,
+          "mean_curve": 19
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 56.0,
+          "p90": 62.0,
+          "max": 70.0,
+          "mean_curve": 59
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 109.0,
+          "p90": 116.0,
+          "max": 130.0,
+          "mean_curve": 113
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0006260706763714552,
+        "16": 0.0013889618217945098
+      }
+    },
+    "two_level_c2_cheb4_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 14.0,
+          "p90": 18.0,
+          "max": 23.0,
+          "mean_curve": 15
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 39.0,
+          "p90": 44.0,
+          "max": 50.0,
+          "mean_curve": 41
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 73.0,
+          "p90": 78.0,
+          "max": 84.0,
+          "mean_curve": 76
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.00063365095295012,
+        "16": 0.0014038724824786187
+      }
+    },
+    "two_level_c2_cheb2_safeguard_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 15.0,
+          "p90": 22.0,
+          "max": 31.0,
+          "mean_curve": 18
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 53.0,
+          "p90": 60.0,
+          "max": 67.0,
+          "mean_curve": 56
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 103.0,
+          "p90": 110.0,
+          "max": 119.0,
+          "mean_curve": 106
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0006477732397615909,
+        "16": 0.0014294620417058467
+      },
+      "fallback_share": 0.05549516135907998
+    }
+  }
+}

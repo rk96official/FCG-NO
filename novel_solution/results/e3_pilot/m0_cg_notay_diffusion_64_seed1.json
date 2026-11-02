@@ -1,0 +1,51 @@
+{
+  "kind": "diffusion",
+  "grid": 64,
+  "seed": 1,
+  "variant": {
+    "label": "m0_cg_notay",
+    "history": 0,
+    "objective": "notay",
+    "sampling": "cg",
+    "rounds": 0,
+    "init": "notebook"
+  },
+  "name": "m0_cg_notay_diffusion_64_seed1",
+  "rounds": [
+    {
+      "round": 0,
+      "records": 6400,
+      "train_seconds": 0.0,
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 10.0,
+          "p90": 10.0,
+          "max": 10.0,
+          "mean_curve": 10
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 20.0,
+          "p90": 21.0,
+          "max": 21.0,
+          "mean_curve": 21
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 35.0,
+          "p90": 35.0,
+          "max": 36.0,
+          "mean_curve": 35
+        }
+      }
+    }
+  ],
+  "seconds_per_iteration": {
+    "1": 0.0008725301548838615,
+    "16": 0.0017072294000536204
+  }
+}

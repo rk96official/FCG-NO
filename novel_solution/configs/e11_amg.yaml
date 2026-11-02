@@ -1,0 +1,25 @@
+experiment: e11_amg
+type: amg
+description: e0_amg baselines on the smooth high-contrast random-field coefficients (contrast 10^2, 10^4, 10^6; nfcg/data/random_fields.py) at 64 and 128
+results_dir: results/e11_amg
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- grf2
+- grf4
+- grf6
+grid:
+- 64
+- 128
+solvers:
+- smoothed_aggregation
+- ruge_stuben
+test:
+  n_test: 100
+  n_iter: 60
+  m_max: 20
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10

@@ -1,0 +1,57 @@
+{
+  "kind": "poisson",
+  "grid": 32,
+  "seed": 0,
+  "variant": {
+    "label": "h1_step_b16",
+    "history": 1,
+    "bottom": 16,
+    "features": 24,
+    "n_modes": 12,
+    "rounds": 2,
+    "scale_weight": 0.05
+  },
+  "name": "h1_step_b16_poisson_32_seed0",
+  "rounds": [
+    {
+      "round": 0,
+      "records": 2880,
+      "final_loss": 0.004075956002196126,
+      "iterations_1e-06": {
+        "systems": 32,
+        "failure_rate": 0.0,
+        "median": 7.0,
+        "p90": 7.0,
+        "max": 7.0,
+        "mean_curve": 7
+      }
+    },
+    {
+      "round": 1,
+      "records": 3400,
+      "final_loss": 0.006820970033123937,
+      "iterations_1e-06": {
+        "systems": 32,
+        "failure_rate": 0.0,
+        "median": 6.0,
+        "p90": 7.0,
+        "max": 7.0,
+        "mean_curve": 7
+      }
+    },
+    {
+      "round": 2,
+      "records": 3883,
+      "final_loss": 0.007577945983749773,
+      "iterations_1e-06": {
+        "systems": 32,
+        "failure_rate": 0.0,
+        "median": 6.0,
+        "p90": 7.0,
+        "max": 7.0,
+        "mean_curve": 6
+      }
+    }
+  ],
+  "train_seconds": 468.96225011814386
+}

@@ -1,0 +1,79 @@
+{
+  "kind": "diffusion",
+  "grid": 64,
+  "seed": 0,
+  "tag": "paper",
+  "checkpoint": "sno_diffusion_64_notay_krylov_n64_upstream_seed0",
+  "train_minutes": 9.89094807531219,
+  "parameters": 459969,
+  "evaluation_seconds": 4.2241585361771286,
+  "reproduction": {
+    "0.001": {
+      "ours": 8,
+      "stored": 8,
+      "match": true
+    },
+    "1e-06": {
+      "ours": 20,
+      "stored": 20,
+      "match": true
+    },
+    "1e-12": {
+      "ours": 55,
+      "stored": 55,
+      "match": true
+    }
+  },
+  "fcg": {
+    "0.001": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 8.0,
+      "p90": 8.0,
+      "max": 9.0,
+      "mean_curve": 8
+    },
+    "1e-06": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 18.0,
+      "p90": 20.0,
+      "max": 25.0,
+      "mean_curve": 19
+    },
+    "1e-10": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 36.0,
+      "p90": 43.0,
+      "max": 106.0,
+      "mean_curve": 53
+    }
+  },
+  "cg": {
+    "0.001": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 81.0,
+      "p90": 84.0,
+      "max": 89.0,
+      "mean_curve": 81
+    },
+    "1e-06": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 151.0,
+      "p90": 159.0,
+      "max": 168.0,
+      "mean_curve": 152
+    },
+    "1e-10": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 243.0,
+      "p90": 247.0,
+      "max": 249.0,
+      "mean_curve": 244
+    }
+  }
+}

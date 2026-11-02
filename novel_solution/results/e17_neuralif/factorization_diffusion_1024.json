@@ -1,0 +1,151 @@
+{
+  "kind": "diffusion",
+  "grid": 1024,
+  "name": "factorization_diffusion_1024",
+  "variants": {
+    "ic0": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 390.0,
+          "p90": 399.0,
+          "max": 412.0,
+          "mean_curve": 390
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 759.0,
+          "p90": 786.0,
+          "max": 807.0,
+          "mean_curve": 762
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 1124.0,
+          "p90": 1151.0,
+          "max": 1175.0,
+          "mean_curve": 1132
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0432367823086679,
+        "16": 0.045893503725528716
+      },
+      "setup_seconds": {
+        "1": 0.02443329058587551,
+        "16": 0.03087407350540161
+      }
+    },
+    "neuralif_s0": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 442.0,
+          "p90": 452.0,
+          "max": 468.0,
+          "mean_curve": 442
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 858.0,
+          "p90": 892.0,
+          "max": 918.0,
+          "mean_curve": 864
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 1278.0,
+          "p90": 1307.0,
+          "max": 1337.0,
+          "mean_curve": 1286
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0434972716961056,
+        "16": 0.04565568692050874
+      },
+      "setup_seconds": {
+        "1": 0.020952396094799042,
+        "16": 0.32244875375181437
+      }
+    },
+    "neuralif_s1": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 442.0,
+          "p90": 453.0,
+          "max": 468.0,
+          "mean_curve": 443
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 858.0,
+          "p90": 892.0,
+          "max": 918.0,
+          "mean_curve": 864
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 1278.0,
+          "p90": 1307.0,
+          "max": 1337.0,
+          "mean_curve": 1286
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.043257760955020784,
+        "16": 0.04567892774939537
+      },
+      "setup_seconds": {
+        "1": 0.020961740985512733,
+        "16": 0.32261396292597055
+      }
+    },
+    "neuralif_s2": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 442.0,
+          "p90": 452.0,
+          "max": 468.0,
+          "mean_curve": 442
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 858.0,
+          "p90": 892.0,
+          "max": 918.0,
+          "mean_curve": 864
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 1278.0,
+          "p90": 1307.0,
+          "max": 1337.0,
+          "mean_curve": 1286
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.04312126226723194,
+        "16": 0.045686574280261995
+      },
+      "setup_seconds": {
+        "1": 0.02096118126064539,
+        "16": 0.32257589511573315
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+experiment: e4c_seeds
+type: training
+description: 'Five more seeds (3-7) of HC-NO (h1_on_step) and its memoryless twin (m0_on_step) at 128, to test whether history makes on-policy training more reliable (E4/E4b: 0 of 6 vs 1 of 6 runs failed).
+  Results go to the E4 directory so the report pools 8 seeds'
+results_dir: results/e4_headline
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+m_max: 20
+krylov_iterations: 100
+kind:
+- poisson
+- diffusion
+grid: 128
+seed:
+- 3
+- 4
+- 5
+- 6
+- 7
+settings:
+  poisson:
+    learning_rate: 0.001
+    features:
+      32: 32
+      64: 32
+      128: 32
+    batch_size: {}
+  diffusion:
+    learning_rate: 0.0008
+    features:
+      32: 32
+      64: 48
+      128: 85
+    batch_size:
+      32: 32
+      64: 32
+collection:
+  steps: 100
+  floor: 1.0e-10
+  chunk: 8
+  round_fraction: 0.5
+fine_tune:
+  epochs: 30
+  learning_rate_scale: 0.5
+test:
+  n_test: 100
+  chunk: 20
+  cap: 4grid
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 50
+variant:
+- label: h1_on_step
+  history: 1
+  objective: step
+  scale_weight: 0.05
+  sampling: onpolicy
+  rounds: 3
+  init: train
+- label: m0_on_step
+  history: 0
+  objective: step
+  scale_weight: 0.05
+  sampling: onpolicy
+  rounds: 3
+  init: train

@@ -1,0 +1,31 @@
+experiment: e12_width_main
+type: main
+description: 'Diffusion width study in deployment: HC-NO at 85 (E4), 48 and 32 features (E12 training), single-grid and two-level (network at its 128 training grid for 256 tests), all in one job so timings share hardware. Submit after e12_width_training'
+results_dir: results/e12_width_main
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind: [diffusion]
+seed: [0, 1, 2]
+model:
+  - {label: h1_on_step, source: training, train_grid: 128, round: 3}
+  - {label: h1_on_step_w48, source: training, train_grid: 128, round: 3}
+  - {label: h1_on_step_w32, source: training, train_grid: 128, round: 3}
+test_grid: [128, 256]
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  active_floor: 1.0e-10
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]
+  timing_batches: [1, 16]
+  timing_iterations: 50
+variants:
+  - {label: tf32, precision: {dtype: float32}}
+  - {label: safeguard_every4_tf32, safeguard: {fallback: chebyshev, sweeps: 2, every: 4}, precision: {dtype: float32}}
+  - {label: two_level_c2_cheb2_tf32, two_level: {coarsen: 2, smoother: chebyshev, sweeps: 2}, precision: {dtype: float32}}
+  - {label: two_level_c2_cheb4_tf32, two_level: {coarsen: 2, smoother: chebyshev, sweeps: 4}, precision: {dtype: float32}}
+  - {label: two_level_c2_cheb2_safeguard_tf32, two_level: {coarsen: 2, smoother: chebyshev, sweeps: 2}, safeguard: {fallback: chebyshev, sweeps: 2}, precision: {dtype: float32}}

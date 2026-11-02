@@ -1,0 +1,42 @@
+experiment: e19_three_d_training
+type: three_d_training
+description: '3D extension: 7-point Poisson / Diffusion (a = P(4,4,4,2) + 10) on the unit cube. HC-NO (3D SNO, 24 features, 12 modes) trained at 32^3 inside the two-level scheme (network on 16^3, Chebyshev(2),
+  line-searched coarse step) with the exact step loss, CG round 0 + 2 on-policy rounds; memoryless control; 3 seeds'
+results_dir: results/e19_three_d_training
+cache_dir: results/datasets
+checkpoint_dir: results/checkpoints
+normalization: upstream
+kind:
+- poisson
+- diffusion
+grid: 32
+seed:
+- 0
+- 1
+- 2
+train:
+  problems: 48
+  steps: 60
+  chunk: 8
+  batch_size: 16
+  learning_rate: 0.001
+  epochs: 150
+  fine_tune_epochs: 30
+  round_fraction: 0.5
+test:
+  n_test: 32
+variant:
+- label: h1_step_b16
+  history: 1
+  bottom: 16
+  features: 24
+  n_modes: 12
+  rounds: 2
+  scale_weight: 0.05
+- label: m0_step_b16
+  history: 0
+  bottom: 16
+  features: 24
+  n_modes: 12
+  rounds: 2
+  scale_weight: 0.05

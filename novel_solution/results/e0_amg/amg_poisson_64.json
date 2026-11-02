@@ -1,0 +1,71 @@
+{
+  "kind": "poisson",
+  "grid": 64,
+  "pyamg_version": "5.2.1",
+  "variants": {
+    "smoothed_aggregation": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 3.0,
+          "p90": 4.0,
+          "max": 4.0,
+          "mean_curve": 3
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 6.0,
+          "p90": 6.0,
+          "max": 7.0,
+          "mean_curve": 6
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 10.0,
+          "p90": 10.0,
+          "max": 10.0,
+          "mean_curve": 10
+        }
+      },
+      "setup_seconds_median": 0.011926266830414534,
+      "seconds_per_iteration_median": 0.0011340958764776588,
+      "levels": 4,
+      "operator_complexity": 1.3386570411392404
+    },
+    "ruge_stuben": {
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 2.0,
+          "p90": 2.0,
+          "max": 3.0,
+          "mean_curve": 2
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 4.0,
+          "p90": 4.0,
+          "max": 4.0,
+          "mean_curve": 4
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 6.0,
+          "p90": 6.0,
+          "max": 6.0,
+          "mean_curve": 6
+        }
+      },
+      "setup_seconds_median": 0.006684218067675829,
+      "seconds_per_iteration_median": 0.0009497326177855332,
+      "levels": 6,
+      "operator_complexity": 2.1784018987341773
+    }
+  }
+}

@@ -1,0 +1,35 @@
+experiment: e3_pilot
+type: training
+description: HC-NO pilot at 64. Full factorial {memoryless, history 1} x {CG data, on-policy K=3} x {mean Notay, exact step loss}, notebook settings, 3 seeds; memoryless CG mean-Notay is the existing notebook checkpoint (evaluated, not retrained)
+results_dir: results/e3_pilot
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+m_max: 20
+krylov_iterations: 100
+kind: [poisson, diffusion]
+grid: 64
+seed: [0, 1, 2]
+settings:
+  poisson: {learning_rate: 1.0e-3, features: {32: 32, 64: 32, 128: 32}, batch_size: {}}
+  diffusion: {learning_rate: 8.0e-4, features: {32: 32, 64: 48, 128: 85}, batch_size: {32: 32, 64: 32}}
+collection: {steps: 100, floor: 1.0e-10, chunk: 16, round_fraction: 0.5}
+fine_tune: {epochs: 30, learning_rate_scale: 0.5}
+test:
+  n_test: 100
+  chunk: 20
+  cap: 4grid
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]
+  timing_batches: [1, 16]
+  timing_iterations: 50
+variant:
+  - {label: m0_cg_notay, history: 0, objective: notay, sampling: cg, rounds: 0, init: notebook}
+  - {label: m0_cg_step, history: 0, objective: step, scale_weight: 0.05, sampling: cg, rounds: 0, init: train}
+  - {label: m0_on_notay, history: 0, objective: notay, sampling: onpolicy, rounds: 3, init: notebook}
+  - {label: m0_on_step, history: 0, objective: step, scale_weight: 0.05, sampling: onpolicy, rounds: 3, init: train}
+  - {label: h1_cg_notay, history: 1, objective: notay, sampling: cg, rounds: 0, init: train}
+  - {label: h1_cg_step, history: 1, objective: step, scale_weight: 0.05, sampling: cg, rounds: 0, init: train}
+  - {label: h1_on_notay, history: 1, objective: notay, sampling: onpolicy, rounds: 3, init: train}
+  - {label: h1_on_step, history: 1, objective: step, scale_weight: 0.05, sampling: onpolicy, rounds: 3, init: train}

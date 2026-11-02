@@ -1,0 +1,151 @@
+{
+  "kind": "grf4",
+  "grid": 128,
+  "seed": 2,
+  "variant": {
+    "label": "hc_2l2_coef",
+    "history": 1,
+    "objective": "step",
+    "scale_weight": 0.05,
+    "sampling": "onpolicy",
+    "rounds": 3,
+    "init": "train",
+    "coefficient": true,
+    "two_level": {
+      "coarsen": 2,
+      "smoother": "chebyshev",
+      "sweeps": 2
+    }
+  },
+  "name": "hc_2l2_coef_grf4_128_seed2",
+  "rounds": [
+    {
+      "round": 0,
+      "records": 12800,
+      "train_seconds": 1686.9182456731796,
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 54.0,
+          "p90": 69.0,
+          "max": 87.0,
+          "mean_curve": 61
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 128.0,
+          "p90": 160.0,
+          "max": 212.0,
+          "mean_curve": 153
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 226.0,
+          "p90": 287.0,
+          "max": 378.0,
+          "mean_curve": 302
+        }
+      }
+    },
+    {
+      "round": 1,
+      "records": 19200,
+      "train_seconds": 380.4360416792333,
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 55.0,
+          "p90": 68.0,
+          "max": 95.0,
+          "mean_curve": 61
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 130.0,
+          "p90": 160.0,
+          "max": 228.0,
+          "mean_curve": 155
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 230.0,
+          "p90": 286.0,
+          "max": 366.0,
+          "mean_curve": 301
+        }
+      }
+    },
+    {
+      "round": 2,
+      "records": 25600,
+      "train_seconds": 507.05215334985405,
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 55.0,
+          "p90": 69.0,
+          "max": 104.0,
+          "mean_curve": 60
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 128.0,
+          "p90": 154.0,
+          "max": 218.0,
+          "mean_curve": 153
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 229.0,
+          "p90": 276.0,
+          "max": 385.0,
+          "mean_curve": 307
+        }
+      }
+    },
+    {
+      "round": 3,
+      "records": 32000,
+      "train_seconds": 633.0616887230426,
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 55.0,
+          "p90": 71.0,
+          "max": 84.0,
+          "mean_curve": 60
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 127.0,
+          "p90": 163.0,
+          "max": 201.0,
+          "mean_curve": 151
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 228.0,
+          "p90": 281.0,
+          "max": 346.0,
+          "mean_curve": 297
+        }
+      }
+    }
+  ],
+  "seconds_per_iteration": {
+    "1": 0.0007837177999317646,
+    "16": 0.001371644828468561
+  }
+}

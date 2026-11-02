@@ -1,0 +1,35 @@
+experiment: e6_main
+type: main
+description: Main table at 128 and 256. Notebook baseline (memoryless, CG data, Notay), HC-NO (E4 h1_on_step, round 3) and memoryless on-policy step loss (E4b m0_on_step, round 3), each under the compositions of fixes from E2b (TF32, smoothing wrapper, safeguard with the network every k-th step); compared in the report with jitted CG, Chebyshev-PCG and AMG iterations. Submit after E4b has finished
+results_dir: results/e6_main
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind: [poisson, diffusion]
+seed: [0, 1, 2]
+model:
+  - {label: notebook, source: notebook, train_grid: 128}
+  - {label: h1_on_step, source: training, train_grid: 128, round: 3}
+  - {label: m0_on_step, source: training, train_grid: 128, round: 3}
+test_grid: [128, 256]
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  active_floor: 1.0e-10
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]
+  timing_batches: [1, 16]
+  timing_iterations: 50
+variants:
+  - {label: base}
+  - {label: tf32, precision: {dtype: float32}}
+  - {label: wrapper_cheb2, wrapper: {smoother: chebyshev, sweeps: 2}}
+  - {label: wrapper_cheb2_tf32, wrapper: {smoother: chebyshev, sweeps: 2}, precision: {dtype: float32}}
+  - {label: wrapper_cheb4_tf32, wrapper: {smoother: chebyshev, sweeps: 4}, precision: {dtype: float32}}
+  - {label: safeguard_tf32, safeguard: {fallback: chebyshev, sweeps: 2}, precision: {dtype: float32}}
+  - {label: safeguard_every4_tf32, safeguard: {fallback: chebyshev, sweeps: 2, every: 4}, precision: {dtype: float32}}
+  - {label: wrapper_cheb2_safeguard_tf32, wrapper: {smoother: chebyshev, sweeps: 2}, safeguard: {fallback: chebyshev, sweeps: 2}, precision: {dtype: float32}}
+  - {label: wrapper_cheb2_safeguard_every4_tf32, wrapper: {smoother: chebyshev, sweeps: 2}, safeguard: {fallback: chebyshev, sweeps: 2, every: 4}, precision: {dtype: float32}}

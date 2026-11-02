@@ -1,0 +1,53 @@
+{
+  "kind": "poisson",
+  "grid": 128,
+  "seed": 1,
+  "variant": {
+    "label": "m0_cg_cvar",
+    "history": 0,
+    "objective": "notay",
+    "aggregate": "cvar",
+    "q": 0.1,
+    "sampling": "cg",
+    "rounds": 0,
+    "init": "train"
+  },
+  "name": "m0_cg_cvar_poisson_128_seed1",
+  "rounds": [
+    {
+      "round": 0,
+      "records": 12800,
+      "train_seconds": 1204.4151369556785,
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 12.0,
+          "p90": 13.0,
+          "max": 15.0,
+          "mean_curve": 12
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 26.0,
+          "p90": 28.0,
+          "max": 41.0,
+          "mean_curve": 27
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 47.0,
+          "p90": 54.0,
+          "max": 119.0,
+          "mean_curve": 84
+        }
+      }
+    }
+  ],
+  "seconds_per_iteration": {
+    "1": 0.0008286546170711517,
+    "16": 0.0030259146727621557
+  }
+}

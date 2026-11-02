@@ -1,0 +1,57 @@
+{
+  "kind": "diffusion",
+  "grid": 32,
+  "seed": 0,
+  "variant": {
+    "label": "h1_step_b16",
+    "history": 1,
+    "bottom": 16,
+    "features": 24,
+    "n_modes": 12,
+    "rounds": 2,
+    "scale_weight": 0.05
+  },
+  "name": "h1_step_b16_diffusion_32_seed0",
+  "rounds": [
+    {
+      "round": 0,
+      "records": 2880,
+      "final_loss": 0.00464928327934084,
+      "iterations_1e-06": {
+        "systems": 32,
+        "failure_rate": 0.0,
+        "median": 7.0,
+        "p90": 7.0,
+        "max": 7.0,
+        "mean_curve": 7
+      }
+    },
+    {
+      "round": 1,
+      "records": 3410,
+      "final_loss": 0.007551128537653436,
+      "iterations_1e-06": {
+        "systems": 32,
+        "failure_rate": 0.0,
+        "median": 6.0,
+        "p90": 6.0,
+        "max": 7.0,
+        "mean_curve": 6
+      }
+    },
+    {
+      "round": 2,
+      "records": 3890,
+      "final_loss": 0.008510717566020651,
+      "iterations_1e-06": {
+        "systems": 32,
+        "failure_rate": 0.0,
+        "median": 6.0,
+        "p90": 6.0,
+        "max": 6.0,
+        "mean_curve": 6
+      }
+    }
+  ],
+  "train_seconds": 467.3882548538968
+}

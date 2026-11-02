@@ -1,0 +1,81 @@
+{
+  "kind": "poisson",
+  "seed": 0,
+  "model": {
+    "label": "fcg_unet",
+    "source": "reproduction",
+    "architecture": "unet",
+    "tag": "paper",
+    "train_grid": 128
+  },
+  "test_grid": 128,
+  "name": "fcg_unet_poisson_128to128_seed0",
+  "history": 0,
+  "coefficient": false,
+  "variants": {
+    "plain_fp64": {
+      "iterations": {
+        "0.001": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 4.0,
+          "p90": 5.0,
+          "max": 5.0,
+          "mean_curve": 4
+        },
+        "1e-06": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 8.0,
+          "p90": 11.0,
+          "max": 14.0,
+          "mean_curve": 12
+        },
+        "1e-12": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 19.0,
+          "p90": 28.0,
+          "max": 32.0,
+          "mean_curve": 26
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0015112136490643025,
+        "16": 0.012560581285506488
+      }
+    },
+    "plain_tf32": {
+      "iterations": {
+        "0.001": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 4.0,
+          "p90": 5.0,
+          "max": 5.0,
+          "mean_curve": 4
+        },
+        "1e-06": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 8.0,
+          "p90": 10.0,
+          "max": 13.0,
+          "mean_curve": 11
+        },
+        "1e-12": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 21.0,
+          "p90": 25.0,
+          "max": 29.0,
+          "mean_curve": 24
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0007069587521255017,
+        "16": 0.0009932955726981163
+      }
+    }
+  }
+}

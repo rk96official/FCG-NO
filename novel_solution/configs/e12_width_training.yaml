@@ -1,0 +1,37 @@
+experiment: e12_width_training
+type: training
+description: 'Narrower Diffusion HC-NO at 128 (32 and 48 features instead of the notebook 85), trained exactly like E4 h1_on_step (on-policy, step loss, 3 rounds). E6/E8 showed the Diffusion network costs 3x a Poisson one per iteration; this tests whether a cheaper network keeps the iterations and the tail, for a Diffusion time win in the two-level form (E12 evaluation)'
+results_dir: results/e12_width_training
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+m_max: 20
+krylov_iterations: 100
+kind: [diffusion]
+grid: 128
+seed: [0, 1, 2]
+settings:
+  diffusion:
+    learning_rate: 0.0008
+    features: {32: 32, 64: 48, 128: 85}
+    batch_size: {32: 32, 64: 32}
+collection:
+  steps: 100
+  floor: 1.0e-10
+  chunk: 8
+  round_fraction: 0.5
+fine_tune:
+  epochs: 30
+  learning_rate_scale: 0.5
+test:
+  n_test: 100
+  chunk: 20
+  cap: 4grid
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]
+  timing_batches: [1, 16]
+  timing_iterations: 50
+variant:
+  - {label: h1_on_step_w32, features: 32, history: 1, objective: step, scale_weight: 0.05, sampling: onpolicy, rounds: 3, init: train}
+  - {label: h1_on_step_w48, features: 48, history: 1, objective: step, scale_weight: 0.05, sampling: onpolicy, rounds: 3, init: train}

@@ -1,0 +1,41 @@
+experiment: e15_classical
+type: classical
+description: e11_classical baselines on the high-contrast coefficients at 128, 256 and 512 (E15)
+results_dir: results/e0_classical
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- grf2
+- grf4
+- grf6
+grid:
+- 128
+- 256
+- 512
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 6grid
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 50
+variants:
+- smoother: identity
+  sweeps: 1
+- smoother: jacobi
+  sweeps: 1
+- smoother: jacobi
+  sweeps: 4
+- smoother: chebyshev
+  sweeps: 2
+- smoother: chebyshev
+  sweeps: 4
+- smoother: chebyshev
+  sweeps: 8

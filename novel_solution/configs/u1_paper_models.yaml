@@ -1,0 +1,64 @@
+experiment: u1_paper_models
+type: main
+description: 'The paper''s learned preconditioners from the reproduction (SNO with paper and notebook settings, FNO, U-Net, DilResNet; Notay loss, Krylov residuals, trained at 128, seed 0) through the same
+  jitted GPU FCG as ours: iterations and time per system on the reproduction''s 20 test systems at 128 and cross-grid at 256-1024, as trained (fp64) and in TF32'
+results_dir: results/u1_paper_models
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- poisson
+- diffusion
+seed:
+- 0
+model:
+- label: fcgno_sno_paper
+  source: reproduction
+  architecture: sno
+  tag: paper
+  train_grid: 128
+- label: fcgno_sno_notebook
+  source: reproduction
+  architecture: sno
+  tag: notebook
+  train_grid: 128
+- label: fcg_fno
+  source: reproduction
+  architecture: fno
+  tag: paper
+  train_grid: 128
+- label: fcg_unet
+  source: reproduction
+  architecture: unet
+  tag: paper
+  train_grid: 128
+- label: fcg_dilresnet
+  source: reproduction
+  architecture: dilresnet
+  tag: paper
+  train_grid: 128
+test_grid:
+- 128
+- 256
+- 512
+- 1024
+test:
+  n_test: 20
+  chunk: 4
+  m_max: 20
+  cap: 4grid
+  active_floor: 1.0e-10
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-12
+  timing_batches:
+  - 1
+  timing_iterations: 50
+variants:
+- label: plain_fp64
+- label: plain_tf32
+  precision:
+    dtype: float32

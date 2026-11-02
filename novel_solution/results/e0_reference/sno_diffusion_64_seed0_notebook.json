@@ -1,0 +1,79 @@
+{
+  "kind": "diffusion",
+  "grid": 64,
+  "seed": 0,
+  "tag": "notebook",
+  "checkpoint": "sno_diffusion_64_notay_krylov_n64_upstream_seed0_notebook",
+  "train_minutes": 6.274516053839276,
+  "parameters": 258961,
+  "evaluation_seconds": 3.303501575719565,
+  "reproduction": {
+    "0.001": {
+      "ours": 12,
+      "stored": 12,
+      "match": true
+    },
+    "1e-06": {
+      "ours": 23,
+      "stored": 23,
+      "match": true
+    },
+    "1e-12": {
+      "ours": 48,
+      "stored": 48,
+      "match": true
+    }
+  },
+  "fcg": {
+    "0.001": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 12.0,
+      "p90": 12.0,
+      "max": 13.0,
+      "mean_curve": 12
+    },
+    "1e-06": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 23.0,
+      "p90": 23.0,
+      "max": 25.0,
+      "mean_curve": 23
+    },
+    "1e-10": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 40.0,
+      "p90": 41.0,
+      "max": 42.0,
+      "mean_curve": 40
+    }
+  },
+  "cg": {
+    "0.001": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 81.0,
+      "p90": 84.0,
+      "max": 89.0,
+      "mean_curve": 81
+    },
+    "1e-06": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 151.0,
+      "p90": 159.0,
+      "max": 168.0,
+      "mean_curve": 152
+    },
+    "1e-10": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 243.0,
+      "p90": 247.0,
+      "max": 249.0,
+      "mean_curve": 244
+    }
+  }
+}

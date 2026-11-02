@@ -1,0 +1,33 @@
+experiment: e4_headline
+type: training
+description: 128. Midterm 2x2 (memoryless) {CG data, on-policy K=3} x {mean Notay, CVaR Notay q=0.1}, the equal-size CG control, and HC-NO (history 1, on-policy, step loss); notebook settings, 3 seeds. CG + mean Notay is the existing notebook checkpoint (evaluated only)
+results_dir: results/e4_headline
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+m_max: 20
+krylov_iterations: 100
+kind: [poisson, diffusion]
+grid: 128
+seed: [0, 1, 2]
+settings:
+  poisson: {learning_rate: 1.0e-3, features: {32: 32, 64: 32, 128: 32}, batch_size: {}}
+  diffusion: {learning_rate: 8.0e-4, features: {32: 32, 64: 48, 128: 85}, batch_size: {32: 32, 64: 32}}
+collection: {steps: 100, floor: 1.0e-10, chunk: 8, round_fraction: 0.5}
+fine_tune: {epochs: 30, learning_rate_scale: 0.5}
+test:
+  n_test: 100
+  chunk: 20
+  cap: 4grid
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]
+  timing_batches: [1, 16]
+  timing_iterations: 50
+variant:
+  - {label: m0_cg_notay, history: 0, objective: notay, sampling: cg, rounds: 0, init: notebook}
+  - {label: m0_cg_cvar, history: 0, objective: notay, aggregate: cvar, q: 0.1, sampling: cg, rounds: 0, init: train}
+  - {label: m0_on_notay, history: 0, objective: notay, sampling: onpolicy, rounds: 3, init: notebook}
+  - {label: m0_on_cvar, history: 0, objective: notay, aggregate: cvar, q: 0.1, sampling: onpolicy, rounds: 3, init: train}
+  - {label: m0_cgextra_notay, history: 0, objective: notay, sampling: cg_extra, rounds: 3, init: notebook}
+  - {label: h1_on_step, history: 1, objective: step, scale_weight: 0.05, sampling: onpolicy, rounds: 3, init: train}

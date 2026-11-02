@@ -1,0 +1,40 @@
+experiment: u1_unified_classical
+type: classical
+description: GPU CG, Jacobi-PCG and Chebyshev-PCG on the reproduction's exact 20 test systems at 32-128 to 1e-12, per-system arrays (unified comparison)
+results_dir: results/u1_unified_classical
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- poisson
+- diffusion
+grid:
+- 32
+- 64
+- 128
+test:
+  n_test: 20
+  chunk: 20
+  m_max: 20
+  cap: 6grid
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-12
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 50
+variants:
+- smoother: identity
+  sweeps: 1
+- smoother: jacobi
+  sweeps: 1
+- smoother: jacobi
+  sweeps: 4
+- smoother: chebyshev
+  sweeps: 2
+- smoother: chebyshev
+  sweeps: 4
+- smoother: chebyshev
+  sweeps: 8

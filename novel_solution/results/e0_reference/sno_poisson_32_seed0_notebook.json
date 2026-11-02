@@ -1,0 +1,79 @@
+{
+  "kind": "poisson",
+  "grid": 32,
+  "seed": 0,
+  "tag": "notebook",
+  "checkpoint": "sno_poisson_32_notay_krylov_n32_upstream_seed0_notebook",
+  "train_minutes": 1.4430500122718513,
+  "parameters": 115297,
+  "evaluation_seconds": 0.5695741726085544,
+  "reproduction": {
+    "0.001": {
+      "ours": 6,
+      "stored": 6,
+      "match": true
+    },
+    "1e-06": {
+      "ours": 11,
+      "stored": 11,
+      "match": true
+    },
+    "1e-12": {
+      "ours": 21,
+      "stored": 21,
+      "match": true
+    }
+  },
+  "fcg": {
+    "0.001": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 6.0,
+      "p90": 6.0,
+      "max": 6.0,
+      "mean_curve": 6
+    },
+    "1e-06": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 11.0,
+      "p90": 11.0,
+      "max": 11.0,
+      "mean_curve": 11
+    },
+    "1e-10": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 18.0,
+      "p90": 18.0,
+      "max": 18.0,
+      "mean_curve": 18
+    }
+  },
+  "cg": {
+    "0.001": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 48.0,
+      "p90": 49.0,
+      "max": 53.0,
+      "mean_curve": 48
+    },
+    "1e-06": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 81.0,
+      "p90": 82.0,
+      "max": 82.0,
+      "mean_curve": 81
+    },
+    "1e-10": {
+      "systems": 100,
+      "failure_rate": 0.0,
+      "median": 112.0,
+      "p90": 112.0,
+      "max": 112.0,
+      "mean_curve": 112
+    }
+  }
+}

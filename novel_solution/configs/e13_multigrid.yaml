@@ -1,0 +1,31 @@
+experiment: e13_multigrid
+type: multigrid
+description: 'Classical multigrid baselines on GPU in the same framework as the learned two-level preconditioner. GMG: FCG with a V-cycle (Galerkin coarse operators R A P between the same non-nested bilinear grids, probed as 7x7 stencils; Chebyshev(2) smoothing with power-iteration bounds; dense Cholesky at 16). Two-level: fine Chebyshev(2) smoothing, energy line search, and in the network''s slot on a 64 or 32 coarse grid either nothing (smoothing only), Chebyshev(8) sweeps, one V-cycle, the exact Galerkin solve, or the trained network (E10 models, seed 0, TF32). Setup (hierarchy, factorization) is timed separately from iterations'
+results_dir: results/e13_multigrid
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind: [poisson, diffusion]
+grid: [128, 256, 512, 1024]
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]
+  timing_batches: [1, 16]
+  timing_iterations: 50
+variants:
+  - {label: gmg_vcycle, method: gmg, sweeps: 2}
+  - {label: gmg_vcycle_fp32coarse, method: gmg, sweeps: 2, coarse_dtype: float32}
+  - {label: tl64_smoothing_only, method: two_level, coarse_grid: 64, coarse: zero}
+  - {label: tl64_chebyshev8, method: two_level, coarse_grid: 64, coarse: chebyshev, coarse_sweeps: 8}
+  - {label: tl64_vcycle, method: two_level, coarse_grid: 64, coarse: vcycle, coarse_sweeps: 2}
+  - {label: tl64_vcycle_fp32, method: two_level, coarse_grid: 64, coarse: vcycle, coarse_sweeps: 2, coarse_dtype: float32}
+  - {label: tl64_exact, method: two_level, coarse_grid: 64, coarse: exact}
+  - {label: tl64_network, method: network, coarse_grid: 64, model: {label: h1_on_step_2l2, train_grid: 128, round: 3, seed: 0}}
+  - {label: tl32_vcycle, method: two_level, coarse_grid: 32, coarse: vcycle, coarse_sweeps: 2}
+  - {label: tl32_exact, method: two_level, coarse_grid: 32, coarse: exact}
+  - {label: tl32_network, method: network, coarse_grid: 32, model: {label: h1_on_step_2l4, train_grid: 128, round: 3, seed: 0}}

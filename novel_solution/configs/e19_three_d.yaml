@@ -1,0 +1,72 @@
+experiment: e19_three_d
+type: three_d
+description: '3D deployment at 32^3, 64^3, 128^3: Chebyshev(8)-PCG, setup-free rediscretized multigrid (dense 8^3 bottom; Chebyshev(8) 16^3 bottom), and the e19 networks in the two-level (fine -> 16^3)
+  and multi-level (halving to 16^3) schemes, TF32'
+results_dir: results/e19_three_d
+cache_dir: results/datasets
+checkpoint_dir: results/checkpoints
+normalization: upstream
+kind:
+- poisson
+- diffusion
+grid:
+- 32
+- 64
+- 128
+test:
+  n_test: 32
+  chunk: 8
+  m_max: 20
+  cap: 4
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 20
+variants:
+- label: chebyshev8
+  method: chebyshev
+  sweeps: 8
+- label: mg_dense8
+  method: multilevel
+  bottom: 8
+  bottom_solver: dense
+- label: mg_cheb16
+  method: multilevel
+  bottom: 16
+  bottom_solver: chebyshev
+- label: net_tl16_s0
+  method: network
+  model: h1_step_b16
+  train_grid: 32
+  seed: 0
+  bottom: 16
+- label: net_tl16_s1
+  method: network
+  model: h1_step_b16
+  train_grid: 32
+  seed: 1
+  bottom: 16
+- label: net_tl16_s2
+  method: network
+  model: h1_step_b16
+  train_grid: 32
+  seed: 2
+  bottom: 16
+- label: net_ml16_s0
+  method: network
+  model: h1_step_b16
+  train_grid: 32
+  seed: 0
+  bottom: 16
+  levels: multi
+- label: net_m0_ml16_s0
+  method: network
+  model: m0_step_b16
+  train_grid: 32
+  seed: 0
+  bottom: 16
+  levels: multi

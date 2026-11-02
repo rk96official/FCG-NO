@@ -1,0 +1,101 @@
+experiment: e20_multigrid
+type: multigrid
+description: 'Jump coefficients vs classical multigrid on GPU, same job: Galerkin GMG, two-level with V-cycle / exact (Theorem 3 bound) / Chebyshev(8) coarse solves on 64, setup-free rediscretized multi-level,
+  and the E20 networks (two-level coarse slot on grid/2 with log a; fine_network without and with log a, 3 seeds), TF32'
+results_dir: results/e20_multigrid
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- jump2
+- jump4
+- jump6
+grid:
+- 128
+- 256
+- 512
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-10
+  timing_batches:
+  - 1
+  - 16
+  timing_iterations: 50
+variants:
+- label: gmg_vcycle_fp32coarse
+  method: gmg
+  sweeps: 2
+  coarse_dtype: float32
+- label: tl64_vcycle
+  method: two_level
+  coarse_grid: 64
+  coarse: vcycle
+  coarse_sweeps: 2
+- label: tl64_exact
+  method: two_level
+  coarse_grid: 64
+  coarse: exact
+- label: tl64_chebyshev8
+  method: two_level
+  coarse_grid: 64
+  coarse: chebyshev
+  coarse_sweeps: 8
+- label: redisc_dense16
+  method: rediscretized
+  coarse_grid: 16
+  smoother: chebyshev
+  sweeps: 2
+  bottom: dense
+  bottom_sweeps: 8
+- label: tl2_jr_coef
+  method: network
+  coarsen: 2
+  model:
+    label: jr_2l_coef
+    train_grid: 128
+    round: 3
+    seed: 0
+- label: fine_jr
+  method: network
+  coarsen: 2
+  fine_network: true
+  model:
+    label: jr_fine
+    train_grid: 128
+    round: 3
+    seed: 0
+- label: fine_jr_coef_s0
+  method: network
+  coarsen: 2
+  fine_network: true
+  model:
+    label: jr_fine_coef
+    train_grid: 128
+    round: 3
+    seed: 0
+- label: fine_jr_coef_s1
+  method: network
+  coarsen: 2
+  fine_network: true
+  model:
+    label: jr_fine_coef
+    train_grid: 128
+    round: 3
+    seed: 1
+- label: fine_jr_coef_s2
+  method: network
+  coarsen: 2
+  fine_network: true
+  model:
+    label: jr_fine_coef
+    train_grid: 128
+    round: 3
+    seed: 2

@@ -1,0 +1,334 @@
+kind,grid,tolerance,method,source,cell
+poisson,32,0.001,CG,paper,20
+poisson,64,0.001,CG,paper,20
+poisson,128,0.001,CG,paper,20
+poisson,32,0.001,Jacobi(4),paper,19
+poisson,64,0.001,Jacobi(4),paper,34
+poisson,128,0.001,Jacobi(4),paper,62
+poisson,32,0.001,SGS(1),paper,7
+poisson,64,0.001,SGS(1),paper,7
+poisson,128,0.001,SGS(1),paper,7
+poisson,32,0.001,SGS(4),paper,3
+poisson,64,0.001,SGS(4),paper,3
+poisson,128,0.001,SGS(4),paper,3
+poisson,32,0.001,ILU(1),paper,15
+poisson,64,0.001,ILU(1),paper,16
+poisson,128,0.001,ILU(1),paper,16
+poisson,32,0.001,ILU(8),paper,7
+poisson,64,0.001,ILU(8),paper,9
+poisson,128,0.001,ILU(8),paper,9
+poisson,32,0.001,"FCG-NO (SNO), paper settings",paper,6
+poisson,64,0.001,"FCG-NO (SNO), paper settings",paper,9
+poisson,128,0.001,"FCG-NO (SNO), paper settings",paper,10 (15% fail)
+poisson,32,0.001,"FCG-NO (SNO), authors' notebook settings",paper,6
+poisson,64,0.001,"FCG-NO (SNO), authors' notebook settings",paper,8
+poisson,128,0.001,"FCG-NO (SNO), authors' notebook settings",paper,11
+poisson,32,0.001,FCG-FNO,paper,3
+poisson,64,0.001,FCG-FNO,paper,6
+poisson,128,0.001,FCG-FNO,paper,10
+poisson,32,0.001,FCG-U-Net,paper,4
+poisson,64,0.001,FCG-U-Net,paper,3
+poisson,128,0.001,FCG-U-Net,paper,4
+poisson,32,0.001,FCG-DilResNet,paper,2
+poisson,64,0.001,FCG-DilResNet,paper,2
+poisson,128,0.001,FCG-DilResNet,paper,3
+poisson,32,0.001,PCG-GNN (Li et al. 2023),paper,11
+poisson,64,0.001,PCG-GNN (Li et al. 2023),paper,20
+poisson,128,0.001,PCG-GNN (Li et al. 2023),paper,37
+poisson,32,0.001,CG (GPU),baseline,48
+poisson,64,0.001,CG (GPU),baseline,98
+poisson,128,0.001,CG (GPU),baseline,196
+poisson,32,0.001,Jacobi(4)-PCG (GPU),baseline,21
+poisson,64,0.001,Jacobi(4)-PCG (GPU),baseline,41
+poisson,128,0.001,Jacobi(4)-PCG (GPU),baseline,83
+poisson,32,0.001,Chebyshev(8)-PCG (GPU),baseline,10
+poisson,64,0.001,Chebyshev(8)-PCG (GPU),baseline,19
+poisson,128,0.001,Chebyshev(8)-PCG (GPU),baseline,39
+poisson,32,0.001,HC-NO two-level (trained per grid),ours,3
+poisson,64,0.001,HC-NO two-level (trained per grid),ours,4
+poisson,128,0.001,HC-NO two-level (trained per grid),ours,4
+poisson,32,0.001,HC-NO multi-level (trained per grid),ours,3
+poisson,64,0.001,HC-NO multi-level (trained per grid),ours,5
+poisson,128,0.001,HC-NO multi-level (trained per grid),ours,7
+poisson,32,0.001,"NO in-role, no history, two-level (trained per grid)",ours,3
+poisson,64,0.001,"NO in-role, no history, two-level (trained per grid)",ours,4
+poisson,128,0.001,"NO in-role, no history, two-level (trained per grid)",ours,4
+poisson,32,0.001,"NO in-role, no history, multi-level (trained per grid)",ours,3
+poisson,64,0.001,"NO in-role, no history, multi-level (trained per grid)",ours,4
+poisson,128,0.001,"NO in-role, no history, multi-level (trained per grid)",ours,6
+poisson,32,1e-06,CG,paper,75
+poisson,64,1e-06,CG,paper,131
+poisson,128,1e-06,CG,paper,216
+poisson,32,1e-06,Jacobi(4),paper,30
+poisson,64,1e-06,Jacobi(4),paper,58
+poisson,128,1e-06,Jacobi(4),paper,113
+poisson,32,1e-06,SGS(1),paper,27
+poisson,64,1e-06,SGS(1),paper,47
+poisson,128,1e-06,SGS(1),paper,76
+poisson,32,1e-06,SGS(4),paper,13
+poisson,64,1e-06,SGS(4),paper,23
+poisson,128,1e-06,SGS(4),paper,36
+poisson,32,1e-06,ILU(1),paper,53
+poisson,64,1e-06,ILU(1),paper,94
+poisson,128,1e-06,ILU(1),paper,157
+poisson,32,1e-06,ILU(8),paper,17
+poisson,64,1e-06,ILU(8),paper,45
+poisson,128,1e-06,ILU(8),paper,75
+poisson,32,1e-06,"FCG-NO (SNO), paper settings",paper,11
+poisson,64,1e-06,"FCG-NO (SNO), paper settings",paper,20
+poisson,128,1e-06,"FCG-NO (SNO), paper settings",paper,187 (50% fail)
+poisson,32,1e-06,"FCG-NO (SNO), authors' notebook settings",paper,11
+poisson,64,1e-06,"FCG-NO (SNO), authors' notebook settings",paper,18
+poisson,128,1e-06,"FCG-NO (SNO), authors' notebook settings",paper,34
+poisson,32,1e-06,FCG-FNO,paper,7
+poisson,64,1e-06,FCG-FNO,paper,12
+poisson,128,1e-06,FCG-FNO,paper,23
+poisson,32,1e-06,FCG-U-Net,paper,7
+poisson,64,1e-06,FCG-U-Net,paper,7
+poisson,128,1e-06,FCG-U-Net,paper,8
+poisson,32,1e-06,FCG-DilResNet,paper,4
+poisson,64,1e-06,FCG-DilResNet,paper,4
+poisson,128,1e-06,FCG-DilResNet,paper,7
+poisson,32,1e-06,PCG-GNN (Li et al. 2023),paper,21
+poisson,64,1e-06,PCG-GNN (Li et al. 2023),paper,34
+poisson,128,1e-06,PCG-GNN (Li et al. 2023),paper,64
+poisson,32,1e-06,CG (GPU),baseline,81
+poisson,64,1e-06,CG (GPU),baseline,160
+poisson,128,1e-06,CG (GPU),baseline,317
+poisson,32,1e-06,Jacobi(4)-PCG (GPU),baseline,35
+poisson,64,1e-06,Jacobi(4)-PCG (GPU),baseline,69
+poisson,128,1e-06,Jacobi(4)-PCG (GPU),baseline,136
+poisson,32,1e-06,Chebyshev(8)-PCG (GPU),baseline,17
+poisson,64,1e-06,Chebyshev(8)-PCG (GPU),baseline,33
+poisson,128,1e-06,Chebyshev(8)-PCG (GPU),baseline,64
+poisson,32,1e-06,HC-NO two-level (trained per grid),ours,6
+poisson,64,1e-06,HC-NO two-level (trained per grid),ours,6
+poisson,128,1e-06,HC-NO two-level (trained per grid),ours,7
+poisson,32,1e-06,HC-NO multi-level (trained per grid),ours,6
+poisson,64,1e-06,HC-NO multi-level (trained per grid),ours,8
+poisson,128,1e-06,HC-NO multi-level (trained per grid),ours,13
+poisson,32,1e-06,"NO in-role, no history, two-level (trained per grid)",ours,6
+poisson,64,1e-06,"NO in-role, no history, two-level (trained per grid)",ours,6
+poisson,128,1e-06,"NO in-role, no history, two-level (trained per grid)",ours,7
+poisson,32,1e-06,"NO in-role, no history, multi-level (trained per grid)",ours,6
+poisson,64,1e-06,"NO in-role, no history, multi-level (trained per grid)",ours,8
+poisson,128,1e-06,"NO in-role, no history, multi-level (trained per grid)",ours,12
+poisson,32,1e-12,CG,paper,123
+poisson,64,1e-12,CG,paper,234
+poisson,128,1e-12,CG,paper,445
+poisson,32,1e-12,Jacobi(4),paper,45
+poisson,64,1e-12,Jacobi(4),paper,89
+poisson,128,1e-12,Jacobi(4),paper,173
+poisson,32,1e-12,SGS(1),paper,50
+poisson,64,1e-12,SGS(1),paper,91
+poisson,128,1e-12,SGS(1),paper,170
+poisson,32,1e-12,SGS(4),paper,25
+poisson,64,1e-12,SGS(4),paper,45
+poisson,128,1e-12,SGS(4),paper,84
+poisson,32,1e-12,ILU(1),paper,128 (50% fail)
+poisson,64,1e-12,ILU(1),paper,fail (80% fail)
+poisson,128,1e-12,ILU(1),paper,448
+poisson,32,1e-12,ILU(8),paper,34
+poisson,64,1e-12,ILU(8),paper,104
+poisson,128,1e-12,ILU(8),paper,208
+poisson,32,1e-12,"FCG-NO (SNO), paper settings",paper,22
+poisson,64,1e-12,"FCG-NO (SNO), paper settings",paper,41
+poisson,128,1e-12,"FCG-NO (SNO), paper settings",paper,fail (98% fail)
+poisson,32,1e-12,"FCG-NO (SNO), authors' notebook settings",paper,21
+poisson,64,1e-12,"FCG-NO (SNO), authors' notebook settings",paper,36
+poisson,128,1e-12,"FCG-NO (SNO), authors' notebook settings",paper,76 (3% fail)
+poisson,32,1e-12,FCG-FNO,paper,13
+poisson,64,1e-12,FCG-FNO,paper,24
+poisson,128,1e-12,FCG-FNO,paper,48
+poisson,32,1e-12,FCG-U-Net,paper,12
+poisson,64,1e-12,FCG-U-Net,paper,14
+poisson,128,1e-12,FCG-U-Net,paper,19
+poisson,32,1e-12,FCG-DilResNet,paper,7
+poisson,64,1e-12,FCG-DilResNet,paper,8
+poisson,128,1e-12,FCG-DilResNet,paper,15
+poisson,32,1e-12,PCG-GNN (Li et al. 2023),paper,37
+poisson,64,1e-12,PCG-GNN (Li et al. 2023),paper,58
+poisson,128,1e-12,PCG-GNN (Li et al. 2023),paper,109
+poisson,32,1e-12,CG (GPU),baseline,124
+poisson,64,1e-12,CG (GPU),baseline,243
+poisson,128,1e-12,CG (GPU),baseline,483
+poisson,32,1e-12,Jacobi(4)-PCG (GPU),baseline,54
+poisson,64,1e-12,Jacobi(4)-PCG (GPU),baseline,105
+poisson,128,1e-12,Jacobi(4)-PCG (GPU),baseline,208
+poisson,32,1e-12,Chebyshev(8)-PCG (GPU),baseline,25
+poisson,64,1e-12,Chebyshev(8)-PCG (GPU),baseline,49
+poisson,128,1e-12,Chebyshev(8)-PCG (GPU),baseline,98
+poisson,32,1e-12,HC-NO two-level (trained per grid),ours,12
+poisson,64,1e-12,HC-NO two-level (trained per grid),ours,12
+poisson,128,1e-12,HC-NO two-level (trained per grid),ours,12
+poisson,32,1e-12,HC-NO multi-level (trained per grid),ours,12
+poisson,64,1e-12,HC-NO multi-level (trained per grid),ours,15
+poisson,128,1e-12,HC-NO multi-level (trained per grid),ours,23
+poisson,32,1e-12,"NO in-role, no history, two-level (trained per grid)",ours,12
+poisson,64,1e-12,"NO in-role, no history, two-level (trained per grid)",ours,12
+poisson,128,1e-12,"NO in-role, no history, two-level (trained per grid)",ours,13
+poisson,32,1e-12,"NO in-role, no history, multi-level (trained per grid)",ours,12
+poisson,64,1e-12,"NO in-role, no history, multi-level (trained per grid)",ours,14
+poisson,128,1e-12,"NO in-role, no history, multi-level (trained per grid)",ours,23
+diffusion,32,0.001,CG,paper,20
+diffusion,64,0.001,CG,paper,20
+diffusion,128,0.001,CG,paper,20
+diffusion,32,0.001,Jacobi(4),paper,19
+diffusion,64,0.001,Jacobi(4),paper,34
+diffusion,128,0.001,Jacobi(4),paper,62
+diffusion,32,0.001,SGS(1),paper,7
+diffusion,64,0.001,SGS(1),paper,7
+diffusion,128,0.001,SGS(1),paper,7
+diffusion,32,0.001,SGS(4),paper,3
+diffusion,64,0.001,SGS(4),paper,3
+diffusion,128,0.001,SGS(4),paper,3
+diffusion,32,0.001,ILU(1),paper,15
+diffusion,64,0.001,ILU(1),paper,16
+diffusion,128,0.001,ILU(1),paper,16
+diffusion,32,0.001,ILU(8),paper,7
+diffusion,64,0.001,ILU(8),paper,9
+diffusion,128,0.001,ILU(8),paper,9
+diffusion,32,0.001,"FCG-NO (SNO), paper settings",paper,6
+diffusion,64,0.001,"FCG-NO (SNO), paper settings",paper,8
+diffusion,128,0.001,"FCG-NO (SNO), paper settings",paper,12 (37% fail)
+diffusion,32,0.001,"FCG-NO (SNO), authors' notebook settings",paper,6
+diffusion,64,0.001,"FCG-NO (SNO), authors' notebook settings",paper,10
+diffusion,128,0.001,"FCG-NO (SNO), authors' notebook settings",paper,10 (33% fail)
+diffusion,32,0.001,FCG-FNO,paper,4
+diffusion,64,0.001,FCG-FNO,paper,5
+diffusion,128,0.001,FCG-FNO,paper,8
+diffusion,32,0.001,FCG-U-Net,paper,4
+diffusion,64,0.001,FCG-U-Net,paper,3
+diffusion,128,0.001,FCG-U-Net,paper,5
+diffusion,32,0.001,FCG-DilResNet,paper,3
+diffusion,64,0.001,FCG-DilResNet,paper,3
+diffusion,128,0.001,FCG-DilResNet,paper,3
+diffusion,32,0.001,CG (GPU),baseline,42
+diffusion,64,0.001,CG (GPU),baseline,80
+diffusion,128,0.001,CG (GPU),baseline,161
+diffusion,32,0.001,Jacobi(4)-PCG (GPU),baseline,18
+diffusion,64,0.001,Jacobi(4)-PCG (GPU),baseline,33
+diffusion,128,0.001,Jacobi(4)-PCG (GPU),baseline,66
+diffusion,32,0.001,Chebyshev(8)-PCG (GPU),baseline,8
+diffusion,64,0.001,Chebyshev(8)-PCG (GPU),baseline,16
+diffusion,128,0.001,Chebyshev(8)-PCG (GPU),baseline,31
+diffusion,32,0.001,HC-NO two-level (trained per grid),ours,3
+diffusion,64,0.001,HC-NO two-level (trained per grid),ours,3
+diffusion,128,0.001,HC-NO two-level (trained per grid),ours,3
+diffusion,32,0.001,HC-NO multi-level (trained per grid),ours,3
+diffusion,64,0.001,HC-NO multi-level (trained per grid),ours,4
+diffusion,128,0.001,HC-NO multi-level (trained per grid),ours,5
+diffusion,32,0.001,"NO in-role, no history, two-level (trained per grid)",ours,3
+diffusion,64,0.001,"NO in-role, no history, two-level (trained per grid)",ours,3
+diffusion,128,0.001,"NO in-role, no history, two-level (trained per grid)",ours,3
+diffusion,32,0.001,"NO in-role, no history, multi-level (trained per grid)",ours,3
+diffusion,64,0.001,"NO in-role, no history, multi-level (trained per grid)",ours,4
+diffusion,128,0.001,"NO in-role, no history, multi-level (trained per grid)",ours,5
+diffusion,32,1e-06,CG,paper,77
+diffusion,64,1e-06,CG,paper,131
+diffusion,128,1e-06,CG,paper,219
+diffusion,32,1e-06,Jacobi(4),paper,32
+diffusion,64,1e-06,Jacobi(4),paper,60
+diffusion,128,1e-06,Jacobi(4),paper,113
+diffusion,32,1e-06,SGS(1),paper,27
+diffusion,64,1e-06,SGS(1),paper,46
+diffusion,128,1e-06,SGS(1),paper,75
+diffusion,32,1e-06,SGS(4),paper,13
+diffusion,64,1e-06,SGS(4),paper,22
+diffusion,128,1e-06,SGS(4),paper,36
+diffusion,32,1e-06,ILU(1),paper,53
+diffusion,64,1e-06,ILU(1),paper,93
+diffusion,128,1e-06,ILU(1),paper,154
+diffusion,32,1e-06,ILU(8),paper,17
+diffusion,64,1e-06,ILU(8),paper,44
+diffusion,128,1e-06,ILU(8),paper,75
+diffusion,32,1e-06,"FCG-NO (SNO), paper settings",paper,11
+diffusion,64,1e-06,"FCG-NO (SNO), paper settings",paper,19
+diffusion,128,1e-06,"FCG-NO (SNO), paper settings",paper,fail (65% fail)
+diffusion,32,1e-06,"FCG-NO (SNO), authors' notebook settings",paper,13
+diffusion,64,1e-06,"FCG-NO (SNO), authors' notebook settings",paper,20
+diffusion,128,1e-06,"FCG-NO (SNO), authors' notebook settings",paper,25 (33% fail)
+diffusion,32,1e-06,FCG-FNO,paper,9
+diffusion,64,1e-06,FCG-FNO,paper,12
+diffusion,128,1e-06,FCG-FNO,paper,17
+diffusion,32,1e-06,FCG-U-Net,paper,7
+diffusion,64,1e-06,FCG-U-Net,paper,7
+diffusion,128,1e-06,FCG-U-Net,paper,11
+diffusion,32,1e-06,FCG-DilResNet,paper,5
+diffusion,64,1e-06,FCG-DilResNet,paper,5
+diffusion,128,1e-06,FCG-DilResNet,paper,7
+diffusion,32,1e-06,CG (GPU),baseline,78
+diffusion,64,1e-06,CG (GPU),baseline,150
+diffusion,128,1e-06,CG (GPU),baseline,300
+diffusion,32,1e-06,Jacobi(4)-PCG (GPU),baseline,33
+diffusion,64,1e-06,Jacobi(4)-PCG (GPU),baseline,64
+diffusion,128,1e-06,Jacobi(4)-PCG (GPU),baseline,125
+diffusion,32,1e-06,Chebyshev(8)-PCG (GPU),baseline,16
+diffusion,64,1e-06,Chebyshev(8)-PCG (GPU),baseline,30
+diffusion,128,1e-06,Chebyshev(8)-PCG (GPU),baseline,59
+diffusion,32,1e-06,HC-NO two-level (trained per grid),ours,6
+diffusion,64,1e-06,HC-NO two-level (trained per grid),ours,6
+diffusion,128,1e-06,HC-NO two-level (trained per grid),ours,6
+diffusion,32,1e-06,HC-NO multi-level (trained per grid),ours,6
+diffusion,64,1e-06,HC-NO multi-level (trained per grid),ours,7
+diffusion,128,1e-06,HC-NO multi-level (trained per grid),ours,11
+diffusion,32,1e-06,"NO in-role, no history, two-level (trained per grid)",ours,6
+diffusion,64,1e-06,"NO in-role, no history, two-level (trained per grid)",ours,6
+diffusion,128,1e-06,"NO in-role, no history, two-level (trained per grid)",ours,6
+diffusion,32,1e-06,"NO in-role, no history, multi-level (trained per grid)",ours,6
+diffusion,64,1e-06,"NO in-role, no history, multi-level (trained per grid)",ours,7
+diffusion,128,1e-06,"NO in-role, no history, multi-level (trained per grid)",ours,11
+diffusion,32,1e-12,CG,paper,fail (100% fail)
+diffusion,64,1e-12,CG,paper,fail (100% fail)
+diffusion,128,1e-12,CG,paper,512 (45% fail)
+diffusion,32,1e-12,Jacobi(4),paper,53
+diffusion,64,1e-12,Jacobi(4),paper,102
+diffusion,128,1e-12,Jacobi(4),paper,200
+diffusion,32,1e-12,SGS(1),paper,51
+diffusion,64,1e-12,SGS(1),paper,94
+diffusion,128,1e-12,SGS(1),paper,176
+diffusion,32,1e-12,SGS(4),paper,25
+diffusion,64,1e-12,SGS(4),paper,46
+diffusion,128,1e-12,SGS(4),paper,87
+diffusion,32,1e-12,ILU(1),paper,128 (40% fail)
+diffusion,64,1e-12,ILU(1),paper,fail (70% fail)
+diffusion,128,1e-12,ILU(1),paper,444
+diffusion,32,1e-12,ILU(8),paper,35
+diffusion,64,1e-12,ILU(8),paper,105
+diffusion,128,1e-12,ILU(8),paper,204
+diffusion,32,1e-12,"FCG-NO (SNO), paper settings",paper,22
+diffusion,64,1e-12,"FCG-NO (SNO), paper settings",paper,55 (28% fail)
+diffusion,128,1e-12,"FCG-NO (SNO), paper settings",paper,fail (67% fail)
+diffusion,32,1e-12,"FCG-NO (SNO), authors' notebook settings",paper,31
+diffusion,64,1e-12,"FCG-NO (SNO), authors' notebook settings",paper,42
+diffusion,128,1e-12,"FCG-NO (SNO), authors' notebook settings",paper,53 (33% fail)
+diffusion,32,1e-12,FCG-FNO,paper,19
+diffusion,64,1e-12,FCG-FNO,paper,28
+diffusion,128,1e-12,FCG-FNO,paper,201 (50% fail)
+diffusion,32,1e-12,FCG-U-Net,paper,13
+diffusion,64,1e-12,FCG-U-Net,paper,14
+diffusion,128,1e-12,FCG-U-Net,paper,26
+diffusion,32,1e-12,FCG-DilResNet,paper,9
+diffusion,64,1e-12,FCG-DilResNet,paper,10
+diffusion,128,1e-12,FCG-DilResNet,paper,13
+diffusion,32,1e-12,CG (GPU),baseline,143
+diffusion,64,1e-12,CG (GPU),baseline,279
+diffusion,128,1e-12,CG (GPU),baseline,551
+diffusion,32,1e-12,Jacobi(4)-PCG (GPU),baseline,62
+diffusion,64,1e-12,Jacobi(4)-PCG (GPU),baseline,119
+diffusion,128,1e-12,Jacobi(4)-PCG (GPU),baseline,232
+diffusion,32,1e-12,Chebyshev(8)-PCG (GPU),baseline,28
+diffusion,64,1e-12,Chebyshev(8)-PCG (GPU),baseline,56
+diffusion,128,1e-12,Chebyshev(8)-PCG (GPU),baseline,110
+diffusion,32,1e-12,HC-NO two-level (trained per grid),ours,12
+diffusion,64,1e-12,HC-NO two-level (trained per grid),ours,12
+diffusion,128,1e-12,HC-NO two-level (trained per grid),ours,12
+diffusion,32,1e-12,HC-NO multi-level (trained per grid),ours,12
+diffusion,64,1e-12,HC-NO multi-level (trained per grid),ours,14
+diffusion,128,1e-12,HC-NO multi-level (trained per grid),ours,21
+diffusion,32,1e-12,"NO in-role, no history, two-level (trained per grid)",ours,12
+diffusion,64,1e-12,"NO in-role, no history, two-level (trained per grid)",ours,12
+diffusion,128,1e-12,"NO in-role, no history, two-level (trained per grid)",ours,13
+diffusion,32,1e-12,"NO in-role, no history, multi-level (trained per grid)",ours,12
+diffusion,64,1e-12,"NO in-role, no history, multi-level (trained per grid)",ours,14
+diffusion,128,1e-12,"NO in-role, no history, multi-level (trained per grid)",ours,21

@@ -1,0 +1,24 @@
+experiment: e10_classical_512
+type: classical
+description: e0_classical baselines (CG, Jacobi, Chebyshev on GPU) at 512 for the E10 grid-scaling test; results go next to the e0_classical files
+results_dir: results/e0_classical
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind: [poisson, diffusion]
+grid: [512]
+test:
+  n_test: 100
+  chunk: 20
+  m_max: 20
+  cap: 6grid
+  tolerances: [1.0e-3, 1.0e-6, 1.0e-10]
+  timing_batches: [1, 16]
+  timing_iterations: 50
+variants:
+  - {smoother: identity, sweeps: 1}
+  - {smoother: jacobi, sweeps: 1}
+  - {smoother: jacobi, sweeps: 4}
+  - {smoother: chebyshev, sweeps: 2}
+  - {smoother: chebyshev, sweeps: 4}
+  - {smoother: chebyshev, sweeps: 8}

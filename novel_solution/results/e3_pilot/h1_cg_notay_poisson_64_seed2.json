@@ -1,0 +1,51 @@
+{
+  "kind": "poisson",
+  "grid": 64,
+  "seed": 2,
+  "variant": {
+    "label": "h1_cg_notay",
+    "history": 1,
+    "objective": "notay",
+    "sampling": "cg",
+    "rounds": 0,
+    "init": "train"
+  },
+  "name": "h1_cg_notay_poisson_64_seed2",
+  "rounds": [
+    {
+      "round": 0,
+      "records": 6400,
+      "train_seconds": 221.57768506370485,
+      "iterations": {
+        "0.001": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 9.0,
+          "p90": 9.0,
+          "max": 9.0,
+          "mean_curve": 9
+        },
+        "1e-06": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 19.0,
+          "p90": 19.0,
+          "max": 19.0,
+          "mean_curve": 19
+        },
+        "1e-10": {
+          "systems": 100,
+          "failure_rate": 0.0,
+          "median": 33.0,
+          "p90": 34.0,
+          "max": 34.0,
+          "mean_curve": 33
+        }
+      }
+    }
+  ],
+  "seconds_per_iteration": {
+    "1": 0.0007274384051561356,
+    "16": 0.0012666909210383892
+  }
+}
