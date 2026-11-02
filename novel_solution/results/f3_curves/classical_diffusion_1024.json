@@ -1,0 +1,68 @@
+{
+  "kind": "diffusion",
+  "grid": 1024,
+  "variants": {
+    "cg": {
+      "iterations": {
+        "0.001": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 1363.0,
+          "p90": 1394.0,
+          "max": 1407.0,
+          "mean_curve": 1365
+        },
+        "1e-06": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 2536.0,
+          "p90": 2731.0,
+          "max": 2742.0,
+          "mean_curve": 2591
+        },
+        "1e-12": {
+          "systems": 20,
+          "failure_rate": 1.0,
+          "median": null,
+          "p90": null,
+          "max": null,
+          "mean_curve": -1
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0002929440699517727
+      }
+    },
+    "chebyshev8": {
+      "iterations": {
+        "0.001": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 264.0,
+          "p90": 268.0,
+          "max": 271.0,
+          "mean_curve": 263
+        },
+        "1e-06": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 492.0,
+          "p90": 532.0,
+          "max": 536.0,
+          "mean_curve": 509
+        },
+        "1e-12": {
+          "systems": 20,
+          "failure_rate": 0.0,
+          "median": 879.0,
+          "p90": 884.0,
+          "max": 885.0,
+          "mean_curve": 880
+        }
+      },
+      "seconds_per_iteration": {
+        "1": 0.0004567800089716911
+      }
+    }
+  }
+}
