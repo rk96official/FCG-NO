@@ -60,6 +60,8 @@ def execute_classical_run(run, config, log=print):
         label = smoother_label(variant)
         summaries[label] = {"iterations": {f"{tol:g}": summarize_systems(curves, tol) for tol in test["tolerances"]}, "seconds_per_iteration": timings}
         arrays[f"{label}__iterations"] = np.stack([per_system_iterations(curves, tol) for tol in test["tolerances"]])
+        if test.get("save_curves"):
+            arrays[f"{label}__curves"] = curves.astype(np.float32)
         stats = summaries[label]["iterations"]["1e-06"]
         log(f"{classical_name(run)} {label}: 1e-6 median {stats['median']} p90 {stats['p90']} failures {stats['failure_rate']:.2f} | "
             f"ms/it {', '.join(f'b{batch} {1e3 * value:.3f}' for batch, value in timings.items())}")

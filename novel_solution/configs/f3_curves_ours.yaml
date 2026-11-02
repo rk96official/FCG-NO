@@ -1,0 +1,45 @@
+experiment: f3_curves_ours
+type: main
+description: 'Residual curves for the results package (Fig. 3): our multi-level preconditioner (E14 final_2l2, round 3, seed 0, network as the 64 bottom solve, TF32), on the reproduction''s 20 test
+  systems at 128 and 1024 (same variant as e16_main, curves saved)'
+results_dir: results/f3_curves
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- poisson
+- diffusion
+seed:
+- 0
+model:
+- label: final_2l2
+  source: training
+  train_grid: 128
+  round: 3
+test_grid:
+- 128
+- 1024
+test:
+  n_test: 20
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  active_floor: 1.0e-10
+  save_curves: true
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-12
+  timing_batches:
+  - 1
+  timing_iterations: 10
+variants:
+- label: multi_b64_tf32
+  two_level:
+    coarse_grid: 64
+    smoother: chebyshev
+    sweeps: 2
+  precision:
+    dtype: float32

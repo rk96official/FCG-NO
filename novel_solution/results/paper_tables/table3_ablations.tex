@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Ablations, all deployed in the multi-level scheme at 1024$^2$: iterations to $10^{-6}$ over 5 seeds $\times$ 100 systems and milliseconds per system at batch 16. Each variant changes one component of the full recipe: no history input, the Notay loss instead of the step loss, CG trajectories instead of on-policy data, or single-level training deployed multi-level.}
+\label{tab:ablations}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{3}{c}{Poisson} & \multicolumn{3}{c}{Diffusion} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Variant & median & p90 & ms & median & p90 & ms \\
+\midrule
+Full recipe & 7 & 8 & 4.01 & 7 & 7 & 4.09 \\
+No history & 7 & 8 & 3.28 & 7 & 7 & 3.33 \\
+Notay loss & 7 & 7 & 4.03 & 7 & 7 & 4.10 \\
+CG data (off-policy) & 8 & 8 & 4.62 & 7 & 8 & 4.09 \\
+Single-level (out of role) & 27 & 91 & 15.6 & 28 & 50 & 16.5 \\
+\bottomrule
+\end{tabular}
+\end{table}

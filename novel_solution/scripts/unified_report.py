@@ -20,8 +20,7 @@ PAPER_MODELS = (("fcgno_sno_paper", "FCG-NO (SNO), paper settings"), ("fcgno_sno
                 ("fcg_unet", "FCG-U-Net"), ("fcg_dilresnet", "FCG-DilResNet"))
 OURS_SCALING = (("e16_main", "final_2l2", "multi_b64_tf32", "HC-NO multi-level"), ("e16_main", "rec_b32", "recursive_b32_max64_tf32", "HC-NO recursive"),
                 ("e9_ablation_main", "abl_m0", "multi_b64_tf32", "NO in-role, no history, multi-level"))
-OURS = (("final_2l2", "two_level_c2_tf32", "HC-NO two-level"), ("final_2l2", "multi_b16_tf32", "HC-NO multi-level"),
-        ("abl_m0", "two_level_c2_tf32", "NO in-role, no history, two-level"), ("abl_m0", "multi_b16_tf32", "NO in-role, no history, multi-level"))
+OURS = (("final_2l2", "two_level_c2_tf32", "HC-NO two-level"), ("abl_m0", "two_level_c2_tf32", "NO in-role, no history, two-level"))
 
 
 # Iterations per system at each tolerance from a stack of relative residual curves (systems, steps)

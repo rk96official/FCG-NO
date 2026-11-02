@@ -61,7 +61,7 @@ def main():
     args = parser.parse_args()
     config = yaml.safe_load(open(args.config))
     normalization = config["normalization"]
-    rows, summary = [], {}
+    rows, summary, records_out = [], {}, {}
     for kind in args.kinds:
         for grid in args.grids:
             dataset = load_test_set(config["paper_cache_dir"], config["cache_dir"], kind, grid, args.systems, normalization)
@@ -79,6 +79,7 @@ def main():
                                                                         normalization)):
                         target.append(values)
             delta, exact, learned, deviation = (np.concatenate(values) for values in pooled)
+            records_out.update({f"{kind}_{grid}__{name}": values for name, values in (("delta", delta), ("exact", exact), ("learned", learned))})
             entry = {"records": int(len(delta)), "delta_median": float(np.median(delta)), "delta_p90": float(np.quantile(delta, 0.9)),
                      "exact_efficiency_median": float(np.median(exact)), "learned_efficiency_median": float(np.median(learned)),
                      "identity_max_relative_deviation": float(deviation.max())}
@@ -89,6 +90,7 @@ def main():
     os.makedirs(args.results, exist_ok=True)
     with open(os.path.join(args.results, "theory_check.json"), "w") as handle:
         json.dump(summary, handle, indent=2)
+    np.savez_compressed(os.path.join(args.results, "theory_records.npz"), **records_out)
     header = ("# Theorem 3 check: learned coarse solve vs the exact Galerkin coarse solve\n\n"
               f"E14 `{args.label}` models (seeds {args.seeds}), network on the {COARSE} grid, records along their own two-level FCG trajectories "
               f"({args.systems} test systems each). delta = sin^2 in the Galerkin coarse norm; efficiency = cos^2_A of the prolongated coarse direction with the "

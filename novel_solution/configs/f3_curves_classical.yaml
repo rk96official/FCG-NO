@@ -1,0 +1,31 @@
+experiment: f3_curves_classical
+type: classical
+description: 'Residual curves for the results package (Fig. 3): GPU CG and Chebyshev(8)-PCG on the reproduction''s 20 test systems at 128 and 1024 (curves saved)'
+results_dir: results/f3_curves
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- poisson
+- diffusion
+grid:
+- 128
+- 1024
+test:
+  n_test: 20
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  save_curves: true
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-12
+  timing_batches:
+  - 1
+  timing_iterations: 10
+variants:
+- smoother: identity
+  sweeps: 1
+- smoother: chebyshev
+  sweeps: 8

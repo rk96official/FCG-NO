@@ -175,6 +175,8 @@ def execute_multigrid_run(run, config, log=print):
                    "setup_seconds": setups}
         summaries[variant["label"]] = summary
         arrays[f"{variant['label']}__iterations"] = np.stack([per_system_iterations(curves, tol) for tol in test["tolerances"]])
+        if test.get("save_curves"):
+            arrays[f"{variant['label']}__curves"] = curves.astype(np.float32)
         stats = summary["iterations"]["1e-06"]
         log(f"{name} {variant['label']}: 1e-6 failures {stats['failure_rate']:.2f} median {stats['median']} p90 {stats['p90']} | "
             f"ms/it {', '.join(f'b{batch} {1e3 * value:.3f}' for batch, value in iteration_seconds.items())} | "

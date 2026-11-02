@@ -23,9 +23,7 @@ Same 20 test systems and initial guesses as the reproduction (seed 12 / guess se
 | Jacobi(4)-PCG (GPU) | baseline | 21 | 41 | 83 |
 | Chebyshev(8)-PCG (GPU) | baseline | 10 | 19 | 39 |
 | HC-NO two-level (trained per grid) | ours | 3 | 4 | 4 |
-| HC-NO multi-level (trained per grid) | ours | 3 | 5 | 7 |
 | NO in-role, no history, two-level (trained per grid) | ours | 3 | 4 | 4 |
-| NO in-role, no history, multi-level (trained per grid) | ours | 3 | 4 | 6 |
 
 ## poisson, tolerance 1e-06
 
@@ -47,9 +45,7 @@ Same 20 test systems and initial guesses as the reproduction (seed 12 / guess se
 | Jacobi(4)-PCG (GPU) | baseline | 35 | 69 | 136 | 6.177 |
 | Chebyshev(8)-PCG (GPU) | baseline | 17 | 33 | 64 | 3.448 |
 | HC-NO two-level (trained per grid) | ours | 6 | 6 | 7 | 2.233 |
-| HC-NO multi-level (trained per grid) | ours | 6 | 8 | 13 | 4.159 |
 | NO in-role, no history, two-level (trained per grid) | ours | 6 | 6 | 7 | 2.038 |
-| NO in-role, no history, multi-level (trained per grid) | ours | 6 | 8 | 12 | 3.644 |
 
 ## poisson, tolerance 1e-12
 
@@ -71,9 +67,7 @@ Same 20 test systems and initial guesses as the reproduction (seed 12 / guess se
 | Jacobi(4)-PCG (GPU) | baseline | 54 | 105 | 208 |
 | Chebyshev(8)-PCG (GPU) | baseline | 25 | 49 | 98 |
 | HC-NO two-level (trained per grid) | ours | 12 | 12 | 12 |
-| HC-NO multi-level (trained per grid) | ours | 12 | 15 | 23 |
 | NO in-role, no history, two-level (trained per grid) | ours | 12 | 12 | 13 |
-| NO in-role, no history, multi-level (trained per grid) | ours | 12 | 14 | 23 |
 
 ## diffusion, tolerance 0.001
 
@@ -94,9 +88,7 @@ Same 20 test systems and initial guesses as the reproduction (seed 12 / guess se
 | Jacobi(4)-PCG (GPU) | baseline | 18 | 33 | 66 |
 | Chebyshev(8)-PCG (GPU) | baseline | 8 | 16 | 31 |
 | HC-NO two-level (trained per grid) | ours | 3 | 3 | 3 |
-| HC-NO multi-level (trained per grid) | ours | 3 | 4 | 5 |
 | NO in-role, no history, two-level (trained per grid) | ours | 3 | 3 | 3 |
-| NO in-role, no history, multi-level (trained per grid) | ours | 3 | 4 | 5 |
 
 ## diffusion, tolerance 1e-06
 
@@ -117,9 +109,7 @@ Same 20 test systems and initial guesses as the reproduction (seed 12 / guess se
 | Jacobi(4)-PCG (GPU) | baseline | 33 | 64 | 125 | 5.582 |
 | Chebyshev(8)-PCG (GPU) | baseline | 16 | 30 | 59 | 3.125 |
 | HC-NO two-level (trained per grid) | ours | 6 | 6 | 6 | 1.798 |
-| HC-NO multi-level (trained per grid) | ours | 6 | 7 | 11 | 3.473 |
 | NO in-role, no history, two-level (trained per grid) | ours | 6 | 6 | 6 | 1.755 |
-| NO in-role, no history, multi-level (trained per grid) | ours | 6 | 7 | 11 | 3.365 |
 
 ## diffusion, tolerance 1e-12
 
@@ -140,9 +130,7 @@ Same 20 test systems and initial guesses as the reproduction (seed 12 / guess se
 | Jacobi(4)-PCG (GPU) | baseline | 62 | 119 | 232 |
 | Chebyshev(8)-PCG (GPU) | baseline | 28 | 56 | 110 |
 | HC-NO two-level (trained per grid) | ours | 12 | 12 | 12 |
-| HC-NO multi-level (trained per grid) | ours | 12 | 14 | 21 |
 | NO in-role, no history, two-level (trained per grid) | ours | 12 | 12 | 13 |
-| NO in-role, no history, multi-level (trained per grid) | ours | 12 | 14 | 21 |
 
 ## poisson: trained at 128, tested at 128-1024 (median iterations to 1e-6 / ms per system at batch 1)
 

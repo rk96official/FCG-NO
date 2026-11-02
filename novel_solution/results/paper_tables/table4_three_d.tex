@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\caption{3D problems: median iterations to $10^{-6}$ (32 test systems) and milliseconds per system at 128$^3$, one system at a time (b1) or 16 at once (b16). No method has a setup phase.}
+\label{tab:three_d}
+\begin{tabular}{lcccccccccc}
+\toprule
+& \multicolumn{5}{c}{Poisson} & \multicolumn{5}{c}{Diffusion} \\
+\cmidrule(lr){2-6}\cmidrule(lr){7-11}
+Method & 32$^3$ & 64$^3$ & 128$^3$ & ms (b1) & ms (b16) & 32$^3$ & 64$^3$ & 128$^3$ & ms (b1) & ms (b16) \\
+\midrule
+Ours, multi-level (seed 0) & 6 & 7 & 7 & 9.87 & 6.21 & 6 & 6 & 7 & 9.92 & 6.43 \\
+Ours, multi-level, no history (seed 0) & 6 & 7 & 7 & 8.95 & 5.68 & 6 & 6 & 7 & 8.69 & 5.76 \\
+Ours, two-level (3 seeds) & 7 & 9 & 18 & 21.8 & 14.1 & 6 & 8 & 16 & 19.4 & 12.7 \\
+Setup-free multigrid (dense 8$^3$ bottom) & 7 & 7 & 7 & 6.62 & 5.68 & 6 & 6 & 6 & 5.54 & 4.93 \\
+Setup-free multigrid (Chebyshev 16$^3$ bottom) & 10 & 9 & 9 & 6.97 & 7.02 & 9 & 9 & 9 & 6.93 & 7.19 \\
+Chebyshev(8)-PCG & 20 & 38 & 76 & 56.4 & 61.7 & 18 & 35 & 71 & 54.6 & 58.8 \\
+\bottomrule
+\end{tabular}
+\end{table*}

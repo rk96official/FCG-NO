@@ -1,0 +1,31 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\caption{Median FCG iterations to a relative residual of $10^{-6}$ on the reproduction's 20 test systems, each model trained at its test grid (ours: 5 seeds; SNO: 3 seeds; others: 1). Paper rows come from the reproduction runs (classical ones on the CPU, no time); GPU times are per system, one system at a time (batch 1).}
+\label{tab:unified}
+\begin{tabular}{lcccccccc}
+\toprule
+& \multicolumn{3}{c}{Poisson} & \multicolumn{3}{c}{Diffusion} & \multicolumn{2}{c}{ms / system, 128$^2$} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-9}
+Method & 32$^2$ & 64$^2$ & 128$^2$ & 32$^2$ & 64$^2$ & 128$^2$ & Poisson & Diffusion \\
+\midrule
+CG & 75 & 131 & 216 & 77 & 131 & 219 & -- & -- \\
+Jacobi(4) & 30 & 58 & 113 & 32 & 60 & 113 & -- & -- \\
+SGS(1) & 27 & 47 & 76 & 27 & 46 & 75 & -- & -- \\
+SGS(4) & 13 & 23 & 36 & 13 & 22 & 36 & -- & -- \\
+ILU(1) & 53 & 94 & 157 & 53 & 93 & 154 & -- & -- \\
+ILU(8) & 17 & 45 & 75 & 17 & 44 & 75 & -- & -- \\
+FCG-NO (SNO), paper settings & 11 & 20 & 187 (50\% fail) & 11 & 19 & fail (65\% fail) & -- & -- \\
+FCG-NO (SNO), authors' notebook settings & 11 & 18 & 34 & 13 & 20 & 25 (33\% fail) & -- & -- \\
+FCG-FNO & 7 & 12 & 23 & 9 & 12 & 17 & -- & -- \\
+FCG-U-Net & 7 & 7 & 8 & 7 & 7 & 11 & -- & -- \\
+FCG-DilResNet & 4 & 4 & 7 & 5 & 5 & 7 & -- & -- \\
+PCG-GNN (Li et al. 2023) & 21 & 34 & 64 & -- & -- & -- & -- & -- \\
+CG (GPU) & 81 & 160 & 317 & 78 & 150 & 300 & 13.0 & 12.1 \\
+Jacobi(4)-PCG (GPU) & 35 & 69 & 136 & 33 & 64 & 125 & 6.18 & 5.58 \\
+Chebyshev(8)-PCG (GPU) & 17 & 33 & 64 & 16 & 30 & 59 & 3.45 & 3.13 \\
+Ours, two-level (trained per grid) & 6 & 6 & 7 & 6 & 6 & 6 & 2.23 & 1.80 \\
+Ours, two-level, no history (trained per grid) & 6 & 6 & 7 & 6 & 6 & 6 & 2.04 & 1.76 \\
+\bottomrule
+\end{tabular}
+\end{table*}

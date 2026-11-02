@@ -1,0 +1,41 @@
+experiment: f3_curves_multigrid
+type: multigrid
+description: 'Residual curves for the results package (Fig. 3): Galerkin GMG V-cycle and setup-free rediscretized multigrid (dense 16 bottom), on the reproduction''s 20 test systems at 128 and 1024
+  (same variants as e16_multilevel, curves saved)'
+results_dir: results/f3_curves
+checkpoint_dir: results/checkpoints
+notebook_checkpoint_dir: ../reimplementation/results/checkpoints
+cache_dir: results/datasets
+paper_cache_dir: ../reimplementation/results/datasets
+normalization: upstream
+kind:
+- poisson
+- diffusion
+grid:
+- 128
+- 1024
+test:
+  n_test: 20
+  chunk: 20
+  m_max: 20
+  cap: 4grid
+  save_curves: true
+  tolerances:
+  - 0.001
+  - 1.0e-06
+  - 1.0e-12
+  timing_batches:
+  - 1
+  timing_iterations: 10
+variants:
+- label: gmg_vcycle_fp32coarse
+  method: gmg
+  sweeps: 2
+  coarse_dtype: float32
+- label: redisc_dense16
+  method: rediscretized
+  coarse_grid: 16
+  smoother: chebyshev
+  sweeps: 2
+  bottom: dense
+  bottom_sweeps: 8

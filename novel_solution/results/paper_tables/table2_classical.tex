@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\caption{Ours against classical GPU solvers at 1024$^2$ (100 test systems): median iterations to $10^{-6}$ and milliseconds per system, setup included, solving one system at a time (b1) or 16 at once (b16). AMGX solves one system at a time.}
+\label{tab:classical}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{3}{c}{Poisson} & \multicolumn{3}{c}{Diffusion} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Method & its & ms (b1) & ms (b16) & its & ms (b1) & ms (b16) \\
+\midrule
+Ours, multi-level (5 seeds) & 7 & 6.15 & 4.01 & 7 & 6.17 & 4.09 \\
+Ours, recursive (5 seeds) & 7 & 7.79 & 4.20 & 6 & 6.64 & 3.64 \\
+Ours, no history input (5 seeds) & 7 & 4.96 & 3.28 & 7 & 4.98 & 3.33 \\
+Setup-free multigrid (dense 16$^2$ bottom) & 7 & 4.44 & 3.29 & 7 & 4.43 & 3.32 \\
+Galerkin GMG V-cycle & 7 & 27.6 & 12.2 & 6 & 27.8 & 11.9 \\
+AMGX classical AMG & 10 & 31.6 & -- & 9 & 26.9 & -- \\
+Chebyshev(8)-PCG & 521 & 179 & 176 & 502 & 176 & 173 \\
+\bottomrule
+\end{tabular}
+\end{table*}

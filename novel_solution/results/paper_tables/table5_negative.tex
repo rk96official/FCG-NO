@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Negative results at 512$^2$: median iterations to $10^{-6}$ (100 systems) against the coefficient contrast. Our best network is the multi-level model on smooth fields and the model with a network also on the fine grid on jumps.}
+\label{tab:negative}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{3}{c}{Smooth field (E15)} & \multicolumn{3}{c}{Jumps (E20)} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Method & $10^2$ & $10^4$ & $10^6$ & $10^2$ & $10^4$ & $10^6$ \\
+\midrule
+Chebyshev(8)-PCG & 313 & 343 & 377 & 388 & 485 & 336 \\
+AMGX classical AMG & 9 & 9 & 8 & 8 & 8 & 7 \\
+Galerkin GMG & 7 & 7 & 7 & 10 & 17 & 21 \\
+Setup-free multigrid & 7 & 7 & 8 & 27 & 906 & 633 \\
+Ours (best network) & 10 & 14 & 19 & 106 & 1197 & 364 \\
+Ours + $\log a$ input & 17 & 628 & 693 & 125 & 821 & 746 \\
+\bottomrule
+\end{tabular}
+\end{table}
